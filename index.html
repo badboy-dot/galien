@@ -6,7 +6,7 @@
 <title>Institut Galien — Des Métiers de Santé</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="galien-style.css"/>
 <style>
 /* ---- Home hero ---- */
@@ -26,7 +26,9 @@
 @keyframes beat{0%,100%{box-shadow:0 0 0 0 rgba(233,30,140,.55)}70%{box-shadow:0 0 0 12px rgba(233,30,140,0)}}
 .home-hero h1{font-size:clamp(2.4rem,5.4vw,4.3rem);font-weight:800;line-height:1.1;margin-bottom:22px;max-width:880px;letter-spacing:-.5px;opacity:0;animation:hIn .8s .35s forwards}
 .home-hero h1 .accent{background:linear-gradient(90deg,var(--pink),#ff7ac4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-years{font-family:'Dancing Script','Pacifico',cursive;font-size:1.18em;font-weight:700;color:var(--pink);font-style:italic;-webkit-text-fill-color:var(--pink)}
 .home-hero .sub{font-size:1.14rem;color:rgba(255,255,255,.92);max-width:580px;margin-bottom:34px;opacity:0;animation:hIn .8s .5s forwards}
+.hero-arabic{font-size:1.5rem!important;font-family:'Scheherazade New','Amiri',serif;direction:rtl;color:var(--pink)!important;letter-spacing:0;font-weight:700;-webkit-text-fill-color:var(--pink)!important}
 .home-hero .btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:hIn .8s .65s forwards}
 .hero-trust{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap;opacity:0;animation:hIn .8s .8s forwards}
 .hero-trust .t{display:flex;align-items:center;gap:10px}
@@ -266,8 +268,8 @@
   <div class="hero-orb o2"></div>
   <div class="container">
     <span class="hero-eyebrow">1er établissement accrédité au Maroc</span>
-    <h1>Ensemble vers <span class="accent">l'excellence</span><br/>en santé</h1>
-    <p class="sub">Depuis 2002, l'Institut Galien forme les professionnels de santé de demain — un enseignement de qualité, un avenir prometteur dans le secteur paramédical.</p>
+    <h1><span class="hero-years">20 ans</span> expérience dans la formation<br/>aux professions de santé</h1>
+    <p class="sub hero-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
     <div class="btns">
       <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant</a>
       <a href="#video" class="btn btn-light" data-video>▶ Voir la vidéo</a>
