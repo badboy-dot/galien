@@ -216,7 +216,15 @@
   .play-circle{width:74px;height:74px;font-size:1.4rem}
 }
 </style>
-</head>
+<style>
+#google_translate_element{display:flex;align-items:center}
+#google_translate_element .goog-te-gadget{color:transparent;font-size:0}
+#google_translate_element .goog-te-gadget select{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:20px;cursor:pointer;outline:none;font-family:inherit}
+#google_translate_element .goog-te-gadget select:hover{background:rgba(255,255,255,.25)}
+#google_translate_element .goog-te-gadget select option{color:#1a1233;background:#fff}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+</style></head>
 <body>
 
 <!-- ===== ANNOUNCEMENT BAR ===== -->
@@ -236,7 +244,7 @@
       <span>📞 <a href="tel:+212528848686">(+212) 528 848 686</a></span>
       <span class="hide-sm">📍 Avenue El Mouqwama, Agadir 80000</span>
     </div>
-    <div class="tb-social">
+          <div id="google_translate_element"></div><div class="tb-social">
       <a href="#" title="Facebook">Facebook</a>
       <a href="#" title="Instagram">Instagram</a>
       <a href="#" title="YouTube">YouTube</a>
@@ -793,7 +801,14 @@
 </footer>
 
 <button id="toTop">↑</button>
-<script src="galien.js"></script>
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'fr',includedLanguages:'fr,en,ar',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><script src="galien.js"></script>
 </body>
 </html>
+
+
 

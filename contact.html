@@ -38,12 +38,20 @@
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:36px}}
 @media(max-width:760px){.frow{grid-template-columns:1fr}.form-box{padding:24px}.map-wrap{height:280px;margin-top:36px}}
 </style>
-</head>
+<style>
+#google_translate_element{display:flex;align-items:center}
+#google_translate_element .goog-te-gadget{color:transparent;font-size:0}
+#google_translate_element .goog-te-gadget select{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:20px;cursor:pointer;outline:none;font-family:inherit}
+#google_translate_element .goog-te-gadget select:hover{background:rgba(255,255,255,.25)}
+#google_translate_element .goog-te-gadget select option{color:#1a1233;background:#fff}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+</style></head>
 <body>
 
 <div class="topbar"><div class="container">
   <div class="tb-info"><span>📞 <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm">📍 Avenue El Mouqwama, Agadir 80000</span></div>
-  <div class="tb-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+        <div id="google_translate_element"></div><div class="tb-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
 </div></div>
 <header id="site-header"><div class="container"><nav class="nav">
   <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
@@ -131,7 +139,12 @@
   <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
 </footer>
 <button id="toTop">↑</button>
-<script src="galien.js"></script>
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'fr',includedLanguages:'fr,en,ar',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><script src="galien.js"></script>
 <script>
 const docsByLevel={
   'bac':[['Diplôme du Baccalauréat','🎓'],['Carte d\'identité nationale (CIN)','🪪']],
@@ -161,4 +174,6 @@ function fileSel(input,i){
 </script>
 </body>
 </html>
+
+
 
