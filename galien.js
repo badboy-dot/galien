@@ -1,23 +1,13 @@
 /* Institut Galien — comportements partagés */
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement({
-    pageLanguage:'fr',
-    includedLanguages:'fr,en,ar',
-    autoDisplay:false
-  },'gt-widget');
-}
 function setLang(lang){
-  // Highlight active button
-  ['ls-fr','ls-en','ls-ar'].forEach(function(id){
-    var b=document.getElementById(id);
-    if(b) b.classList.remove('active');
-  });
-  var map={fr:'ls-fr',en:'ls-en',ar:'ls-ar'};
-  var btn=document.getElementById(map[lang]);
-  if(btn) btn.classList.add('active');
-  // Trigger Google Translate
-  var sel=document.querySelector('.goog-te-combo');
-  if(sel){sel.value=lang;sel.dispatchEvent(new Event('change'));}
+  var base='https://badboy-dot-github-io.translate.goog/galien/';
+  // Get current page path relative to /galien/
+  var path=window.location.pathname.replace(/^\/galien\/?/,'');
+  if(lang==='fr'){
+    window.location='https://badboy-dot.github.io/galien/'+(path||'');
+  } else {
+    window.location=base+(path||'')+'?_x_tr_sl=fr&_x_tr_tl='+lang+'&_x_tr_hl=fr&_x_tr_pto=wapp';
+  }
 }
 document.addEventListener('DOMContentLoaded', () => {
   // Header shadow on scroll
