@@ -144,7 +144,9 @@ function googleTranslateElementInit(){
   new google.translate.TranslateElement({pageLanguage:'fr',includedLanguages:'fr,en,ar',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
 }
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><script src="galien.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><div id="gt-widget" style="display:none"></div>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="galien.js"></script>
 <script>
 const docsByLevel={
   'bac':[['Diplôme du Baccalauréat','🎓'],['Carte d\'identité nationale (CIN)','🪪']],
@@ -174,6 +176,7 @@ function fileSel(input,i){
 </script>
 </body>
 </html>
+
 
 
 

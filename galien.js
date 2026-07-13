@@ -1,8 +1,23 @@
 /* Institut Galien — comportements partagés */
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage:'fr',
+    includedLanguages:'fr,en,ar',
+    autoDisplay:false
+  },'gt-widget');
+}
 function setLang(lang){
-  document.cookie='googtrans=/fr/'+lang+';path=/';
-  document.cookie='googtrans=/fr/'+lang+';domain='+location.hostname+';path=/';
-  location.reload();
+  // Highlight active button
+  ['ls-fr','ls-en','ls-ar'].forEach(function(id){
+    var b=document.getElementById(id);
+    if(b) b.classList.remove('active');
+  });
+  var map={fr:'ls-fr',en:'ls-en',ar:'ls-ar'};
+  var btn=document.getElementById(map[lang]);
+  if(btn) btn.classList.add('active');
+  // Trigger Google Translate
+  var sel=document.querySelector('.goog-te-combo');
+  if(sel){sel.value=lang;sel.dispatchEvent(new Event('change'));}
 }
 document.addEventListener('DOMContentLoaded', () => {
   // Header shadow on scroll
