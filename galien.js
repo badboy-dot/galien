@@ -60,12 +60,27 @@ document.addEventListener('DOMContentLoaded', () => {
       d.addEventListener('click', () => go(k));
       dotsWrap.appendChild(d); dots.push(d);
     });
+    const hero = document.querySelector('.home-hero');
+    const panel0 = document.querySelector('.hcp-0');
+    const panelRest = document.querySelector('.hcp-rest');
     function go(n) {
       slides[i].classList.remove('on'); if (dots[i]) dots[i].classList.remove('on');
       i = (n + slides.length) % slides.length;
       slides[i].classList.add('on'); if (dots[i]) dots[i].classList.add('on');
+      // Switch content panels
+      if(i === 0){
+        if(hero) hero.classList.add('slide-0');
+        if(panel0) panel0.classList.add('on');
+        if(panelRest) panelRest.classList.remove('on');
+      } else {
+        if(hero) hero.classList.remove('slide-0');
+        if(panel0) panel0.classList.remove('on');
+        if(panelRest) panelRest.classList.add('on');
+      }
       restart();
     }
+    // Init first state
+    if(hero) hero.classList.add('slide-0');
     function restart() { clearInterval(timer); timer = setInterval(() => go(i + 1), 5500); }
     restart();
   }

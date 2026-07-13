@@ -14,7 +14,25 @@
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;transform:scale(1.05)}
 .hero-slide.on{opacity:1;animation:kenburns 8s ease-out forwards}
 @keyframes kenburns{from{transform:scale(1.05)}to{transform:scale(1.16)}}
-.home-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,12,40,.9) 0%,rgba(59,42,143,.62) 55%,rgba(233,30,140,.32) 100%)}
+/* overlay switches per slide */
+.home-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,12,40,.9) 0%,rgba(59,42,143,.62) 55%,rgba(233,30,140,.32) 100%);transition:opacity .8s}
+.home-hero.slide-0::after{background:linear-gradient(105deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.6) 45%,rgba(255,255,255,.05) 100%)}
+/* content panels */
+.hcp{position:absolute;inset:0;z-index:3;display:flex;align-items:center;opacity:0;pointer-events:none;transition:opacity .8s}
+.hcp.on{opacity:1;pointer-events:auto}
+/* slide 1 panel */
+.hcp-0{padding:0}
+.hcp0-inner{padding:60px 80px;max-width:680px}
+.hcp0-title{font-family:'Dancing Script',cursive;font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--purple);font-weight:700;line-height:1.2;margin-bottom:48px;font-style:italic}
+.hcp0-sup{font-family:'Dancing Script',cursive;font-size:.55em;color:var(--pink);vertical-align:super;font-style:italic}
+.hcp0-sup span{font-size:.7em}
+.hcp0-bottom{display:flex;align-items:center;gap:22px}
+.hcp0-logo{width:120px;height:120px;object-fit:contain;animation:sealFloat 4s ease-in-out infinite,sealGlow 4s ease-in-out infinite}
+.hcp0-label{font-size:1rem;font-weight:800;color:var(--purple);letter-spacing:.08em;line-height:1.5;text-transform:uppercase}
+/* rest slides panel */
+.hcp-rest{padding-top:40px;padding-bottom:60px}
+.hcp-rest .container{position:relative;z-index:1;color:#fff}
+@media(max-width:760px){.hcp0-inner{padding:40px 24px}.hcp0-title{font-size:2rem}.hcp0-logo{width:80px;height:80px}.hcp0-label{font-size:.78rem}}
 /* decorative orbs */
 .hero-orb{position:absolute;border-radius:50%;filter:blur(8px);z-index:1;pointer-events:none}
 .hero-orb.o1{width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,140,.45),transparent 70%);top:-80px;right:8%;animation:floaty 9s ease-in-out infinite}
@@ -277,26 +295,41 @@ body{top:0!important}
   <div class="hero-slide" style="background-image:url('images/dsc07224.jpg')"></div>
   <div class="hero-orb o1"></div>
   <div class="hero-orb o2"></div>
-  <div class="container">
-    <span class="hero-eyebrow">1er établissement accrédité au Maroc</span>
-    <h1><span class="hero-years">+25 ans</span> expérience dans la formation<br/>aux professions de santé</h1>
-    <p class="sub hero-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
-    <div class="btns">
-      <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant</a>
-      <a href="#video" class="btn btn-light" data-video>▶ Voir la vidéo</a>
-    </div>
-    <div class="hero-trust">
-      <div class="t"><b>25+</b><span>Ans<br/>d'expérience</span></div>
-      <div class="div"></div>
-      <div class="t"><b>2500+</b><span>Diplômés<br/>formés</span></div>
-      <div class="div"></div>
-      <div class="t"><div><div class="star">★★★★★</div><span>Établissement<br/>accrédité par l'État</span></div></div>
+
+  <!-- SLIDE 1 content — custom layout like screenshot -->
+  <div class="hcp hcp-0 on">
+    <div class="hcp0-inner">
+      <h1 class="hcp0-title"><sup class="hcp0-sup">1<span>er</span></sup> Établissement accrédité au Maroc<br/>dans le secteur paramédical</h1>
+      <div class="hcp0-bottom">
+        <img src="images/accredite.png" alt="Accrédité FPP" class="hcp0-logo"/>
+        <div class="hcp0-label">DIPLÔMES RECONNUS<br/>ET SIGNÉS PAR L'ÉTAT</div>
+      </div>
     </div>
   </div>
-  <!-- Accreditation seal bottom-right -->
-  <div class="hero-seal">
-    <img src="images/accredite.png" alt="Accrédité FPP"/>
+
+  <!-- SLIDES 2-5 content — dark overlay + full text -->
+  <div class="hcp hcp-rest">
+    <div class="container">
+      <span class="hero-eyebrow">1er établissement accrédité au Maroc</span>
+      <h1><span class="hero-years">+25 ans</span> expérience dans la formation<br/>aux professions de santé</h1>
+      <p class="sub hero-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
+      <div class="btns">
+        <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant</a>
+        <a href="#video" class="btn btn-light" data-video>▶ Voir la vidéo</a>
+      </div>
+      <div class="hero-trust">
+        <div class="t"><b>25+</b><span>Ans<br/>d'expérience</span></div>
+        <div class="div"></div>
+        <div class="t"><b>2500+</b><span>Diplômés<br/>formés</span></div>
+        <div class="div"></div>
+        <div class="t"><div><div class="star">★★★★★</div><span>Établissement<br/>accrédité par l'État</span></div></div>
+      </div>
+    </div>
+    <div class="hero-seal">
+      <img src="images/accredite.png" alt="Accrédité FPP"/>
+    </div>
   </div>
+
   <div class="hero-dots" id="heroDots"></div>
   <div class="scroll-ind">Découvrir</div>
 </section>
