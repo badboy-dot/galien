@@ -62,6 +62,9 @@ a{text-decoration:none;color:inherit}
 .nav-menu>li>a:hover{color:var(--pink)}
 .nav-menu>li>a:hover::after,.nav-menu>li>a.active::after{width:100%}
 .nav-menu>li>a.active{color:var(--pink)}
+.lang-switcher{display:flex;align-items:center;gap:4px;margin-left:10px}
+.ls-btn{background:transparent;border:1.5px solid var(--line);color:var(--ink);font-size:.72rem;font-weight:800;padding:5px 10px;border-radius:20px;cursor:pointer;transition:.2s;font-family:inherit;letter-spacing:.04em}
+.ls-btn:hover,.ls-btn.active{background:var(--purple);border-color:var(--purple);color:#fff}
 .nav-cta{margin-left:6px;animation:ctaPulse 2.6s ease-in-out infinite}
 .nav-cta:hover{animation:none}
 @keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(233,30,140,.55)}50%{box-shadow:0 0 0 9px rgba(233,30,140,0)}}

@@ -1,4 +1,9 @@
 /* Institut Galien — comportements partagés */
+function setLang(lang){
+  document.cookie='googtrans=/fr/'+lang+';path=/';
+  document.cookie='googtrans=/fr/'+lang+';domain='+location.hostname+';path=/';
+  location.reload();
+}
 document.addEventListener('DOMContentLoaded', () => {
   // Header shadow on scroll
   const header = document.getElementById('site-header');
@@ -142,6 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const b = iq.querySelector('.gm-submit'); b.textContent = '✅ Demande envoyée !'; b.style.background = '#2ecc71';
     setTimeout(() => { closeM(insc); b.textContent = 'Envoyer ma demande'; b.style.background = ''; iq.reset(); }, 1800);
   });
+
+  // Language switcher — highlight active button based on cookie
+  const langMap = {'fr':'ls-fr','en':'ls-en','ar':'ls-ar'};
+  const cookieLang = (document.cookie.match(/googtrans=\/fr\/([a-z]+)/)||[])[1]||'fr';
+  Object.values(langMap).forEach(id=>{const b=document.getElementById(id);if(b)b.classList.remove('active')});
+  const activeId = langMap[cookieLang]||'ls-fr';
+  const activeBtn = document.getElementById(activeId);
+  if(activeBtn) activeBtn.classList.add('active');
 
   // Contact form (demo)
   const cf = document.getElementById('contactForm');
