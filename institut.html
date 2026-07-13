@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>L'Institut — Institut Galien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="galien-style.css"/>
+<style>
+
+/* ── PAGE INTRO ── */
+.inst-intro{padding:100px 0 0;background:#fff}
+.inst-intro-inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.inst-intro-text .crumb{font-size:.78rem;color:var(--muted);margin-bottom:20px}
+.inst-intro-text .crumb a{color:var(--muted);text-decoration:none}
+.inst-intro-text .crumb a:hover{color:var(--pink)}
+.inst-intro-text h1{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;color:var(--dark);line-height:1.1;margin-bottom:18px}
+.inst-intro-text h1 em{font-style:normal;background:linear-gradient(90deg,var(--pink),#9b59b6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.inst-intro-text p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:28px}
+.inst-intro-text .intro-stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:32px;padding-top:32px;border-top:2px solid var(--line)}
+.intro-stat b{display:block;font-size:2rem;font-weight:800;color:var(--purple);line-height:1}
+.intro-stat span{font-size:.75rem;color:var(--muted);margin-top:4px;display:block}
+.intro-stat b em{font-style:normal;color:var(--pink)}
+.inst-intro-photo{position:relative}
+.inst-intro-photo .main-photo{border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(59,42,143,.18)}
+.inst-intro-photo .main-photo img{width:100%;height:480px;object-fit:cover;display:block}
+.inst-intro-photo .accred-float{position:absolute;top:-20px;right:-20px;width:100px;filter:drop-shadow(0 6px 20px rgba(233,30,140,.35));animation:floatY 4s ease-in-out infinite}
+.inst-intro-photo .year-badge{position:absolute;bottom:-20px;left:30px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:18px;padding:16px 24px;box-shadow:0 14px 36px rgba(233,30,140,.3)}
+.inst-intro-photo .year-badge b{display:block;font-size:1.8rem;font-weight:800;line-height:1}
+.inst-intro-photo .year-badge span{font-size:.7rem;opacity:.85}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media(max-width:900px){
+  .inst-intro-inner{grid-template-columns:1fr;gap:44px}
+  .inst-intro-photo .main-photo img{height:320px}
+  .inst-intro{padding:90px 0 0}
+}
+
+/* strip under hero */
+.inst-strip{background:linear-gradient(90deg,var(--purple),var(--pink));display:grid;grid-template-columns:repeat(4,1fr)}
+.inst-strip .sq{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.15);color:#fff}
+.inst-strip .sq:last-child{border:none}
+.inst-strip .sq b{display:block;font-size:2rem;font-weight:800;line-height:1.1}
+.inst-strip .sq span{font-size:.75rem;opacity:.85;margin-top:4px;display:block}
+@media(max-width:640px){.inst-strip{grid-template-columns:1fr 1fr}.inst-strip .sq{border-right:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15)}}
+
+/* ── MISSION / VISION / VALEURS CARDS ── */
+.mvv{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mvv-card{border-radius:22px;padding:36px 30px;position:relative;overflow:hidden;transition:.3s}
+.mvv-card.m{background:linear-gradient(135deg,var(--purple),#5c3bbf)}
+.mvv-card.v{background:linear-gradient(135deg,#1a1233,var(--purple))}
+.mvv-card.val{background:linear-gradient(135deg,var(--pink),#c4147a)}
+.mvv-card::before{content:"";position:absolute;right:-30px;bottom:-30px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.06)}
+.mvv-card .mvv-ic{font-size:2.4rem;margin-bottom:16px}
+.mvv-card h3{color:#fff;font-size:1.15rem;font-weight:800;margin-bottom:10px}
+.mvv-card p{color:rgba(255,255,255,.82);font-size:.88rem;line-height:1.7}
+.mvv-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.2)}
+@media(max-width:760px){.mvv{grid-template-columns:1fr}}
+
+/* ── ABOUT SPLIT ── */
+.ab-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.ab-photos{position:relative}
+.ab-big{border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(59,42,143,.2)}
+.ab-big img{width:100%;height:440px;object-fit:cover;display:block}
+.ab-badge{position:absolute;bottom:-20px;right:-16px;background:#fff;border-radius:20px;padding:18px 22px;box-shadow:0 14px 40px rgba(59,42,143,.18);text-align:center;border:2px solid var(--line)}
+.ab-badge b{display:block;font-size:2rem;color:var(--purple);font-weight:800;line-height:1}
+.ab-badge span{font-size:.72rem;color:var(--muted);font-weight:600}
+.ab-accred{position:absolute;top:-20px;left:-20px;width:100px}
+.ab-accred img{width:100%;filter:drop-shadow(0 6px 18px rgba(233,30,140,.3))}
+.ab-text .check-list{list-style:none;margin:20px 0 28px;display:flex;flex-direction:column;gap:10px}
+.ab-text .check-list li{display:flex;align-items:flex-start;gap:12px;color:var(--ink);font-size:.92rem}
+.ab-text .check-list li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+@media(max-width:900px){.ab-grid{grid-template-columns:1fr;gap:50px}.ab-photos{margin-bottom:30px}}
+
+/* ── ACCRÉDITATION BAND ── */
+.accred-band{background:linear-gradient(135deg,#1a1233,#3b2a8f);border-radius:26px;padding:54px;display:grid;grid-template-columns:auto 1fr;gap:50px;align-items:center}
+.accred-logo-wrap{text-align:center}
+.accred-logo-wrap img{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(233,30,140,.45));animation:sealPulse 3s ease-in-out infinite}
+@keyframes sealPulse{0%,100%{filter:drop-shadow(0 8px 24px rgba(233,30,140,.45))}50%{filter:drop-shadow(0 8px 40px rgba(233,30,140,.8))}}
+.accred-body h2{color:#fff;font-size:1.8rem;font-weight:800;margin-bottom:14px}
+.accred-body p{color:rgba(255,255,255,.78);font-size:.95rem;line-height:1.8;margin-bottom:22px}
+.accred-tags{display:flex;flex-wrap:wrap;gap:10px}
+.accred-tags span{background:rgba(233,30,140,.2);border:1px solid rgba(233,30,140,.4);color:#fff;padding:7px 16px;border-radius:30px;font-size:.78rem;font-weight:600}
+@media(max-width:760px){.accred-band{grid-template-columns:1fr;text-align:center;padding:34px 24px}.accred-logo-wrap img{width:110px;height:110px}.accred-tags{justify-content:center}}
+
+/* ── FACILITIES ── */
+.fac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.fac-card{position:relative;border-radius:20px;overflow:hidden;height:230px;cursor:default}
+.fac-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.fac-card:hover img{transform:scale(1.07)}
+.fac-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,40,.78) 0%,transparent 55%)}
+.fac-card .fac-lab{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:18px 20px}
+.fac-card .fac-lab b{display:block;color:#fff;font-size:.95rem;font-weight:700}
+.fac-card .fac-lab span{color:rgba(255,255,255,.72);font-size:.76rem}
+@media(max-width:760px){.fac-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.fac-grid{grid-template-columns:1fr}}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;max-width:800px;margin:0 auto}
+.timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--purple),var(--pink));transform:translateX(-50%)}
+.tl-row{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:48px;align-items:center}
+.tl-row .tl-left{text-align:right;padding-right:30px}
+.tl-row .tl-right{padding-left:30px}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.78rem;font-weight:800;box-shadow:0 0 0 5px #fff,0 0 0 7px rgba(233,30,140,.25);margin:0 auto;z-index:2;position:relative}
+.tl-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:0 4px 20px rgba(59,42,143,.07);transition:.3s}
+.tl-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(233,30,140,.2)}
+.tl-card h4{color:var(--purple);font-size:1rem;font-weight:700;margin-bottom:5px}
+.tl-card p{color:var(--muted);font-size:.84rem;line-height:1.6}
+@media(max-width:700px){
+  .timeline::before{left:22px}
+  .tl-row{grid-template-columns:44px 1fr;gap:0}
+  .tl-row .tl-left{display:none}
+  .tl-row .tl-right{padding-left:18px}
+  .tl-dot{margin:0}
+}
+
+/* ── PEDAGOGY FEATURES ── */
+.ped-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.ped-item{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;transition:.3s}
+.ped-item:hover{border-color:rgba(233,30,140,.25);box-shadow:var(--shadow);transform:translateY(-4px)}
+.ped-ic{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.ped-item h4{color:var(--purple);font-size:1rem;font-weight:700;margin-bottom:6px}
+.ped-item p{color:var(--muted);font-size:.86rem;line-height:1.6}
+@media(max-width:700px){.ped-grid{grid-template-columns:1fr}}
+
+/* ── CTA BAND ── */
+.cta-inst{background:linear-gradient(120deg,var(--dark),var(--purple));border-radius:26px;padding:60px;text-align:center;position:relative;overflow:hidden}
+.cta-inst::before{content:"";position:absolute;top:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:rgba(233,30,140,.1)}
+.cta-inst::after{content:"";position:absolute;bottom:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.cta-inst h2{color:#fff;font-size:2rem;font-weight:800;margin-bottom:12px;position:relative;z-index:1}
+.cta-inst p{color:rgba(255,255,255,.75);font-size:1rem;margin-bottom:32px;position:relative;z-index:1;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-inst .btns{position:relative;z-index:1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@media(max-width:600px){.cta-inst{padding:40px 24px}.cta-inst h2{font-size:1.5rem}}
+
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar" style="background:linear-gradient(90deg,var(--purple),#5c3bbf,var(--pink));background-size:200% 100%;animation:gradShift 6s ease infinite;color:#fff;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;padding:11px 24px;flex-wrap:wrap;position:relative">
+    <span style="width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;display:inline-block"></span>
+    <span style="font-size:.82rem">🎓 Inscriptions <strong>2025 – 2026</strong> ouvertes — Places limitées !</span>
+    <a href="contact.html" style="background:#fff;color:var(--purple);font-size:.76rem;font-weight:800;padding:5px 16px;border-radius:30px;text-decoration:none;white-space:nowrap">S'inscrire →</a>
+  </div>
+</div>
+
+<div class="topbar"><div class="container">
+  <div class="tb-info"><span>📞 <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm">📍 Avenue El Mouqwama, Agadir 80000</span></div>
+  <div class="tb-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+</div></div>
+
+<header id="site-header"><div class="container"><nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="institut.html" class="active">L'Institut</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-pink nav-cta" data-inscrire>S'inscrire</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav></div></header>
+
+<!-- ══ PAGE INTRO ══ -->
+<section class="inst-intro">
+  <div class="container">
+    <div class="inst-intro-inner">
+      <div class="inst-intro-text" data-reveal="left">
+        <div class="crumb"><a href="index.html">Accueil</a> › L'Institut</div>
+        <span class="eyebrow">Qui sommes-nous</span>
+        <h1>L'Institut <em>Galien</em><br/>— votre tremplin en santé</h1>
+        <p>Fondé en 2002 à Agadir, l'Institut Galien est le <strong>1er établissement privé accrédité du Maroc</strong> dans le secteur paramédical. Depuis plus de 25 ans, nous formons des professionnels compétents, humains et immédiatement opérationnels.</p>
+        <p>Un enseignement dispensé par des praticiens en exercice, des équipements de simulation clinique modernes, des stages en milieu hospitalier réel et un accompagnement personnalisé jusqu'à l'emploi.</p>
+        <div class="ih-btns" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant</a>
+          <a href="formations.html" class="btn btn-purple">Nos formations →</a>
+        </div>
+        <div class="inst-intro-text intro-stats">
+          <div class="intro-stat"><b>25<em>+</em></b><span>Ans d'expérience</span></div>
+          <div class="intro-stat"><b>2500<em>+</em></b><span>Diplômés formés</span></div>
+          <div class="intro-stat"><b>95<em>%</em></b><span>Taux d'insertion</span></div>
+          <div class="intro-stat"><b>7</b><span>Filières disponibles</span></div>
+        </div>
+      </div>
+      <div class="inst-intro-photo" data-reveal="right">
+        <img class="accred-float" src="images/accredite.png" alt="Accrédité"/>
+        <div class="main-photo"><img src="images/dsc07225.jpg" alt="Formation Institut Galien"/></div>
+        <div class="year-badge"><b>2002</b><span>Fondé en</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MISSION / VISION / VALEURS ══ -->
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px" data-reveal>
+      <span class="eyebrow">Notre identité</span>
+      <h2 class="h-title">Mission, Vision & <span class="accent">Valeurs</span></h2>
+    </div>
+    <div class="mvv">
+      <div class="mvv-card m" data-reveal>
+        <div class="mvv-ic">🎯</div>
+        <h3>Notre Mission</h3>
+        <p>Former des professionnels de santé compétents, humains et immédiatement opérationnels, capables de répondre aux besoins croissants du système de santé marocain et international.</p>
+      </div>
+      <div class="mvv-card v" data-reveal>
+        <div class="mvv-ic">🔭</div>
+        <h3>Notre Vision</h3>
+        <p>Être le référentiel de la formation paramédicale privée en Afrique du Nord, en combinant excellence académique, innovation pédagogique et ouverture sur le monde.</p>
+      </div>
+      <div class="mvv-card val" data-reveal>
+        <div class="mvv-ic">💡</div>
+        <h3>Nos Valeurs</h3>
+        <p>Excellence · Humanité · Rigueur · Innovation · Intégrité. Ces piliers guident chaque décision pédagogique et chaque interaction avec nos étudiants et partenaires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT SPLIT ══ -->
+<section class="section alt">
+  <div class="container">
+    <div class="ab-grid">
+      <div class="ab-photos" data-reveal="left">
+        <div class="ab-accred"><img src="images/accredite.png" alt="Accrédité"/></div>
+        <div class="ab-big"><img src="images/dsc07554.jpg" alt="Formation Galien"/></div>
+        <div class="ab-badge"><b>2002</b><span>Fondé en</span></div>
+      </div>
+      <div class="ab-text" data-reveal="right">
+        <span class="eyebrow">Notre histoire</span>
+        <h2 class="h-title">25 ans au service de la <span class="accent">formation en santé</span></h2>
+        <p class="lead" style="margin:18px 0 10px">Fondé en 2002 à Agadir, l'Institut Galien est le <strong>1er établissement privé accrédité du Maroc</strong> dans le secteur paramédical. Notre mission : former des professionnels de santé compétents, humains et immédiatement opérationnels.</p>
+        <p class="lead" style="margin-bottom:14px">Nous combinons un enseignement théorique rigoureux, des plateaux techniques modernes et des stages en milieu hospitalier réel pour garantir l'excellence de nos diplômés.</p>
+        <ul class="check-list">
+          <li>Accrédité par le Ministère de la Formation Professionnelle</li>
+          <li>Diplômes reconnus et co-signés par l'État marocain</li>
+          <li>Corps professoral de praticiens de santé en exercice</li>
+          <li>Conventions avec les hôpitaux et cliniques d'Agadir</li>
+          <li>Partenariats internationaux (Canada, Allemagne, France, UK)</li>
+          <li>Accompagnement à l'insertion professionnelle</li>
+        </ul>
+        <a href="formations.html" class="btn btn-pink">Découvrir nos formations →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ACCRÉDITATION ══ -->
+<section class="section">
+  <div class="container">
+    <div class="accred-band" data-reveal>
+      <div class="accred-logo-wrap">
+        <img src="images/accredite.png" alt="Accrédité Formation Professionnelle Privée"/>
+      </div>
+      <div class="accred-body">
+        <span class="eyebrow" style="background:rgba(233,30,140,.2);color:rgba(255,255,255,.9);border-color:rgba(233,30,140,.4)">Certification officielle</span>
+        <h2>Établissement <span style="color:var(--pink)">Accrédité</span> par l'État</h2>
+        <p>L'Institut Galien détient l'accréditation officielle du Ministère de la Formation Professionnelle Privée (FPP). Cette reconnaissance garantit la qualité de nos formations, la valeur de nos diplômes sur le marché du travail marocain et international, et le sérieux de notre démarche pédagogique depuis plus de 25 ans.</p>
+        <div class="accred-tags">
+          <span>✅ Diplômes co-signés par l'État</span>
+          <span>✅ Reconnus à l'international</span>
+          <span>✅ Contrôle qualité annuel</span>
+          <span>✅ Suivi pédagogique officiel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ÉQUIPEMENTS ══ -->
+<section class="section alt">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px" data-reveal>
+      <span class="eyebrow">Nos équipements</span>
+      <h2 class="h-title">Des infrastructures <span class="accent">à la hauteur</span></h2>
+      <p style="color:var(--muted);max-width:580px;margin:14px auto 0">Des salles de cours modernes, des laboratoires de simulation et du matériel médical professionnel pour former dans les meilleures conditions.</p>
+    </div>
+    <div class="fac-grid">
+      <div class="fac-card" data-reveal>
+        <img src="images/dsc07179.jpg" alt="Salle de cours"/>
+        <div class="fac-lab"><b>Salles de cours modernes</b><span>Équipements audiovisuels & tableaux interactifs</span></div>
+      </div>
+      <div class="fac-card" data-reveal>
+        <img src="images/dsc07330.jpg" alt="Laboratoire de simulation"/>
+        <div class="fac-lab"><b>Laboratoires de simulation</b><span>Mannequins haute-fidélité & matériel médical</span></div>
+      </div>
+      <div class="fac-card" data-reveal>
+        <img src="images/dsc07225.jpg" alt="Travaux pratiques"/>
+        <div class="fac-lab"><b>Travaux pratiques</b><span>Apprentissage par la pratique & stages intégrés</span></div>
+      </div>
+      <div class="fac-card" data-reveal>
+        <img src="images/dsc07251.jpg" alt="Soins infirmiers"/>
+        <div class="fac-lab"><b>Salle de soins infirmiers</b><span>Protocoles cliniques & gestes techniques</span></div>
+      </div>
+      <div class="fac-card" data-reveal>
+        <img src="images/dsc07554.jpg" alt="Maternité simulation"/>
+        <div class="fac-lab"><b>Salle de simulation obstétricale</b><span>Formation sage-femme & néonatologie</span></div>
+      </div>
+      <div class="fac-card" data-reveal>
+        <img src="images/dsc07224.jpg" alt="Campus"/>
+        <div class="fac-lab"><b>Campus & espaces de vie</b><span>Bibliothèque, cafétéria & espaces de détente</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPROCHE PÉDAGOGIQUE ══ -->
+<section class="section" style="background:linear-gradient(150deg,var(--dark),var(--purple))">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px" data-reveal>
+      <span class="eyebrow" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Pédagogie</span>
+      <h2 class="h-title" style="color:#fff">Notre approche <span class="accent">pédagogique</span></h2>
+      <p style="color:rgba(255,255,255,.72);max-width:580px;margin:14px auto 0">Une méthode éprouvée qui allie théorie rigoureuse, pratique intensive et immersion professionnelle réelle.</p>
+    </div>
+    <div class="ped-grid">
+      <div class="ped-item" data-reveal>
+        <div class="ped-ic">📖</div>
+        <div><h4>Enseignement théorique</h4><p>Des cours dispensés par des praticiens en exercice, avec des supports pédagogiques actualisés, des cas cliniques réels et une progression structurée semaine par semaine.</p></div>
+      </div>
+      <div class="ped-item" data-reveal>
+        <div class="ped-ic">🧪</div>
+        <div><h4>Simulation clinique</h4><p>Laboratoires équipés de mannequins haute-fidélité pour reproduire des situations médicales réelles en toute sécurité, avant l'immersion en milieu hospitalier.</p></div>
+      </div>
+      <div class="ped-item" data-reveal>
+        <div class="ped-ic">🏥</div>
+        <div><h4>Stages hospitaliers</h4><p>Des conventions solides avec les hôpitaux, cliniques et centres de santé d'Agadir et de la région Souss-Massa pour des stages encadrés et valorisants.</p></div>
+      </div>
+      <div class="ped-item" data-reveal>
+        <div class="ped-ic">🤝</div>
+        <div><h4>Suivi & insertion</h4><p>Un accompagnement personnalisé tout au long du cursus : tutorat, orientation, aide à la rédaction du CV et mise en relation avec les employeurs partenaires.</p></div>
+      </div>
+      <div class="ped-item" data-reveal>
+        <div class="ped-ic">🌍</div>
+        <div><h4>Ouverture internationale</h4><p>Des échanges avec nos partenaires (Canada, Québec, Allemagne, France, UK) pour enrichir la formation, offrir des perspectives à l'étranger et accéder à des certifications internationales.</p></div>
+      </div>
+      <div class="ped-item" data-reveal>
+        <div class="ped-ic">📊</div>
+        <div><h4>Évaluation continue</h4><p>Contrôles réguliers, examens pratiques et évaluation par compétences pour s'assurer que chaque étudiant maîtrise parfaitement les gestes et savoirs du métier.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="section alt">
+  <div class="container">
+    <div class="center" style="margin-bottom:60px" data-reveal>
+      <span class="eyebrow">Notre parcours</span>
+      <h2 class="h-title">Une histoire d'<span class="accent">excellence</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-row" data-reveal>
+        <div class="tl-left">
+          <div class="tl-card">
+            <h4>Création de l'Institut</h4>
+            <p>Ouverture à Agadir — premier établissement privé dédié aux métiers de la santé paramédicale dans la région Souss-Massa.</p>
+          </div>
+        </div>
+        <div class="tl-dot">2002</div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-row" data-reveal>
+        <div class="tl-left"></div>
+        <div class="tl-dot">2007</div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <h4>Premières promotions</h4>
+            <p>Les premiers diplômés entrent dans le monde professionnel avec un taux d'insertion de plus de 90% dès la première année.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-row" data-reveal>
+        <div class="tl-left">
+          <div class="tl-card">
+            <h4>Accréditation officielle</h4>
+            <p>Reconnaissance par le Ministère de la Formation Professionnelle Privée — diplômes co-signés par l'État marocain.</p>
+          </div>
+        </div>
+        <div class="tl-dot">2010</div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-row" data-reveal>
+        <div class="tl-left"></div>
+        <div class="tl-dot">2015</div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <h4>Expansion des filières</h4>
+            <p>Ouverture de nouvelles filières : Sage-femme, Vente en pharmacie, Aide-soignant — répondant aux besoins du marché de la santé.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-row" data-reveal>
+        <div class="tl-left">
+          <div class="tl-card">
+            <h4>Plateaux de simulation</h4>
+            <p>Investissement majeur dans des laboratoires haute-fidélité, mannequins médicaux et équipements de simulation clinique de pointe.</p>
+          </div>
+        </div>
+        <div class="tl-dot">2018</div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-row" data-reveal>
+        <div class="tl-left"></div>
+        <div class="tl-dot">2022</div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <h4>20 ans d'excellence</h4>
+            <p>Célébration des 20 ans avec plus de 2000 diplômés formés et un réseau de partenaires internationaux solide (Canada, Allemagne, France, UK).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-row" data-reveal>
+        <div class="tl-left">
+          <div class="tl-card">
+            <h4>2500+ diplômés & cap 2026</h4>
+            <p>Cap des 2500 professionnels de santé formés et intégrés. Lancement du plan stratégique 2026 pour consolider notre position de leader.</p>
+          </div>
+        </div>
+        <div class="tl-dot">2025</div>
+        <div class="tl-right"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-inst" data-reveal>
+      <h2>Prêt à rejoindre l'Institut Galien ?</h2>
+      <p>Rejoignez les 2500+ professionnels de santé qui ont construit leur carrière avec nous. Les inscriptions pour la rentrée 2025–2026 sont ouvertes.</p>
+      <div class="btns">
+        <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant ✨</a>
+        <a href="formations.html" class="btn btn-light">Voir les formations →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="footer-top container"><div class="footer-grid">
+    <div class="footer-brand"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-galien-blanc.png" alt="Institut Galien"/><p>Le 1er établissement privé accrédité dans le secteur paramédical au Maroc. Votre partenaire de confiance pour une carrière réussie dans la santé depuis 2002.</p><div class="f-social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="institut.html">L'Institut</a></li><li><a href="formations.html">Formations</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Formations</h4><ul><li><a href="formations.html">Kinésithérapie</a></li><li><a href="formations.html">Sage-femme</a></li><li><a href="formations.html">Infirmier polyvalent</a></li><li><a href="formations.html">Aide-soignant</a></li><li><a href="formations.html">Vente en pharmacie</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">Avenue El Mouqwama, Agadir</a></li><li><a href="tel:+212528848686">(+212) 528 848 686</a></li><li><a href="https://galien.ma">www.galien.ma</a></li></ul></div>
+  </div></div>
+  <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
+</footer>
+<button id="toTop">↑</button>
+<script src="galien.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact & Inscription — Institut Galien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="galien-style.css"/>
+<style>
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.info-card{background:var(--light);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+.info-card .ic{width:50px;height:50px;border-radius:14px;flex-shrink:0;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.info-card h4{color:var(--purple);margin-bottom:4px}
+.info-card p,.info-card a{color:var(--muted);font-size:.9rem}
+.info-card a:hover{color:var(--pink)}
+.form-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+.form-box h3{color:var(--purple);font-size:1.3rem;margin-bottom:22px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:.92rem;outline:none;transition:border .25s;background:#fff}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--pink)}
+.fg textarea{resize:vertical;min-height:90px}
+.docs{background:var(--light);border:1px dashed var(--line);border-radius:12px;padding:14px;margin-bottom:16px;font-size:.82rem;color:var(--muted)}
+.upbox{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px dashed rgba(233,30,140,.4);border-radius:10px;padding:11px 14px;cursor:pointer;margin-top:8px;position:relative;transition:.25s}
+.upbox:hover{border-color:var(--pink);background:rgba(233,30,140,.04)}
+.upbox.filled{border-style:solid;border-color:#2ecc71;background:rgba(46,204,113,.07)}
+.upbox input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upbox .uic{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.upbox small{display:block;color:var(--ink);font-weight:600;font-size:.82rem}
+.upbox em{font-style:normal;color:var(--muted);font-size:.74rem}
+.submit{width:100%;padding:15px;border:none;border-radius:12px;background:var(--pink);color:#fff;font-weight:700;font-size:1rem;cursor:pointer;transition:.3s}
+.submit:hover{background:var(--pink-d);transform:translateY(-2px);box-shadow:0 10px 26px rgba(233,30,140,.35)}
+.map-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);height:360px;margin-top:50px}
+.map-wrap iframe{width:100%;height:100%;border:0}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:760px){.frow{grid-template-columns:1fr}.form-box{padding:24px}.map-wrap{height:280px;margin-top:36px}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="container">
+  <div class="tb-info"><span>📞 <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm">📍 Avenue El Mouqwama, Agadir 80000</span></div>
+  <div class="tb-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+</div></div>
+<header id="site-header"><div class="container"><nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="institut.html">L'Institut</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-pink nav-cta">S'inscrire</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav></div></header>
+
+<section class="page-hero" style="background-image:url('images/dsc07248.jpg')">
+  <div class="container"><h1>Contact & Inscription</h1><div class="crumb"><a href="index.html">Accueil</a> › Contact</div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Infos -->
+      <div data-reveal="left">
+        <span class="eyebrow">Nous contacter</span>
+        <h2 class="h-title">À votre <span class="accent">écoute</span></h2>
+        <p class="lead" style="margin:16px 0 26px">Une question, une demande d'information ou une inscription ? Notre équipe vous répond.</p>
+        <div class="info-card"><div class="ic">📍</div><div><h4>Adresse</h4><p>Avenue El Mouqwama, Agadir 80000, Maroc</p></div></div>
+        <div class="info-card"><div class="ic">📞</div><div><h4>Téléphone</h4><p><a href="tel:+212528848686">(+212) 528 848 686</a></p><p style="font-size:.8rem">Lun – Sam : 8h00 – 18h00</p></div></div>
+        <div class="info-card"><div class="ic">🌐</div><div><h4>Site & réseaux</h4><p><a href="https://galien.ma">www.galien.ma</a></p></div></div>
+      </div>
+
+      <!-- Form -->
+      <div data-reveal="right">
+        <div class="form-box">
+          <h3>Formulaire d'inscription</h3>
+          <form id="contactForm">
+            <div class="frow">
+              <div class="fg"><label>Prénom</label><input type="text" placeholder="Votre prénom" required/></div>
+              <div class="fg"><label>Nom</label><input type="text" placeholder="Votre nom" required/></div>
+            </div>
+            <div class="frow">
+              <div class="fg"><label>Email</label><input type="email" placeholder="votre@email.com" required/></div>
+              <div class="fg"><label>Téléphone</label><input type="tel" placeholder="+212 6XX XXX XXX"/></div>
+            </div>
+            <div class="fg"><label>Niveau d'études</label>
+              <select id="niveau" onchange="updateDocs()" required>
+                <option value="" disabled selected>Sélectionnez votre niveau</option>
+                <option value="bac">Baccalauréat</option>
+                <option value="niveau-bac">Niveau BAC</option>
+                <option value="college">3ème année collège</option>
+                <option value="pro">Professionnel en exercice</option>
+              </select>
+            </div>
+            <div class="fg"><label>Formation souhaitée</label>
+              <select required>
+                <option value="" disabled selected>Choisissez une formation</option>
+                <option>Kinésithérapie</option><option>Sage-femme</option>
+                <option>Infirmier polyvalent</option>
+                <option>Infirmier auxiliaire</option><option>Aide-soignant</option>
+                <option>Vente en pharmacie</option><option>Formation continue (Licence/Master)</option>
+              </select>
+            </div>
+            <div id="docs" class="docs">📎 Sélectionnez votre niveau pour voir les documents à joindre.</div>
+            <div class="fg"><label>Message (optionnel)</label><textarea placeholder="Votre message…"></textarea></div>
+            <button type="submit" class="submit">Envoyer ma candidature ✨</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrap" data-reveal>
+      <iframe loading="lazy" src="https://www.google.com/maps?q=Agadir%20Avenue%20El%20Mouqawama&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer">
+  <div class="footer-top container"><div class="footer-grid">
+    <div class="footer-brand"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-galien-blanc.png" alt="Institut Galien"/><p>Le 1er établissement privé accrédité dans le secteur paramédical au Maroc, depuis 2002.</p><div class="f-social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="institut.html">L'Institut</a></li><li><a href="formations.html">Formations</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Formations</h4><ul><li><a href="formations.html">Kinésithérapie</a></li><li><a href="formations.html">Sage-femme</a></li><li><a href="formations.html">Infirmier polyvalent</a></li><li><a href="formations.html">Aide-soignant</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">Avenue El Mouqwama, Agadir</a></li><li><a href="tel:+212528848686">(+212) 528 848 686</a></li><li><a href="https://galien.ma">www.galien.ma</a></li></ul></div>
+  </div></div>
+  <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
+</footer>
+<button id="toTop">↑</button>
+<script src="galien.js"></script>
+<script>
+const docsByLevel={
+  'bac':[['Diplôme du Baccalauréat','🎓'],['Carte d\'identité nationale (CIN)','🪪']],
+  'niveau-bac':[['Relevé de notes du BAC','📄'],['Carte d\'identité nationale (CIN)','🪪']],
+  'college':[['Certificat de scolarité','📜'],['Carte d\'identité nationale (CIN)','🪪']],
+  'pro':[['Diplôme professionnel','🎓'],['Carte d\'identité nationale (CIN)','🪪']]
+};
+function updateDocs(){
+  const lvl=document.getElementById('niveau').value;
+  const zone=document.getElementById('docs');
+  const docs=docsByLevel[lvl];
+  if(!docs){zone.innerHTML='📎 Sélectionnez votre niveau pour voir les documents à joindre.';return;}
+  let h='<div style="font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:1px;font-size:.72rem;margin-bottom:10px">📎 Documents à joindre</div>';
+  docs.forEach((d,i)=>{h+=`<div style="margin-bottom:6px"><label style="font-size:.8rem;font-weight:600;color:var(--ink)">${d[0]}</label>
+    <label class="upbox" id="ub${i}"><input type="file" accept="image/*,.pdf" onchange="fileSel(this,${i})" required/>
+    <span class="uic">${d[1]}</span><span><small>Cliquez pour téléverser</small><em>JPG, PNG ou PDF</em></span></label></div>`;});
+  zone.innerHTML=h;
+}
+function fileSel(input,i){
+  const box=document.getElementById('ub'+i);
+  if(input.files.length){box.classList.add('filled');
+    const n=input.files[0].name;
+    box.querySelector('small').textContent='✓ '+(n.length>26?n.slice(0,23)+'…':n);
+    box.querySelector('em').textContent='Fichier ajouté';
+    box.querySelector('.uic').textContent='✅';}
+}
+</script>
+</body>
+</html>
+

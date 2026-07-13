@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Galerie — Institut Galien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="galien-style.css"/>
+<style>
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+.gi{position:relative;border-radius:18px;overflow:hidden;cursor:pointer}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.gi:hover img{transform:scale(1.08)}
+.gi .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(27,18,51,.72),transparent 58%);display:flex;align-items:flex-end;padding:18px;opacity:0;transition:opacity .35s}
+.gi:hover .ov{opacity:1}
+.gi .ov span{color:#fff;font-weight:700;font-size:.9rem}
+.gi.big{grid-column:span 2;grid-row:span 2}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(10,6,24,.92);display:none;align-items:center;justify-content:center;z-index:9999;padding:30px}
+#lb.open{display:flex}
+#lb img{max-width:92%;max-height:90%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#lb .x{position:absolute;top:22px;right:30px;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;background:none;border:none}
+@media(max-width:760px){.gal{grid-template-columns:repeat(2,1fr)}.gi.big{grid-column:span 2;grid-row:span 1}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="container">
+  <div class="tb-info"><span>📞 <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm">📍 Avenue El Mouqwama, Agadir 80000</span></div>
+  <div class="tb-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+</div></div>
+<header id="site-header"><div class="container"><nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="institut.html">L'Institut</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="galerie.html" class="active">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-pink nav-cta">S'inscrire</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav></div></header>
+
+<section class="page-hero" style="background-image:url('images/dsc07225.jpg')">
+  <div class="container"><h1>Galerie Photos</h1><div class="crumb"><a href="index.html">Accueil</a> › Galerie</div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:46px" data-reveal>
+      <span class="eyebrow">Notre établissement</span>
+      <h2 class="h-title">La vie à l'<span class="accent">Institut Galien</span></h2>
+      <p class="lead">Salles de cours, laboratoires de simulation et travaux pratiques en images.</p>
+    </div>
+    <div class="gal">
+      <div class="gi big" data-reveal="zoom"><img src="images/dsc07179.jpg" alt="Cours magistral"/><div class="ov"><span>Cours magistral</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07554.jpg" alt="Simulation sage-femme"/><div class="ov"><span>Simulation Sage-femme</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/kine.png" alt="Kinésithérapie"/><div class="ov"><span>Kinésithérapie</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07224.jpg" alt="Soins pratiques"/><div class="ov"><span>Soins pratiques</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07225.jpg" alt="TP infirmier"/><div class="ov"><span>TP Infirmier</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07251.jpg" alt="Soins infirmiers"/><div class="ov"><span>Soins infirmiers</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07195.jpg" alt="Matériel médical"/><div class="ov"><span>Matériel médical</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07248.jpg" alt="Pratique clinique"/><div class="ov"><span>Pratique clinique</span></div></div>
+      <div class="gi" data-reveal="zoom"><img src="images/dsc07230.jpg" alt="Formation continue"/><div class="ov"><span>Formation continue</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div id="lb"><button class="x" onclick="closeLb()">×</button><img id="lb-img" src="" alt=""/></div>
+
+<footer id="site-footer">
+  <div class="footer-top container"><div class="footer-grid">
+    <div class="footer-brand"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-galien-blanc.png" alt="Institut Galien"/><p>Le 1er établissement privé accrédité dans le secteur paramédical au Maroc, depuis 2002.</p><div class="f-social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="institut.html">L'Institut</a></li><li><a href="formations.html">Formations</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Formations</h4><ul><li><a href="formations.html">Kinésithérapie</a></li><li><a href="formations.html">Sage-femme</a></li><li><a href="formations.html">Infirmier polyvalent</a></li><li><a href="formations.html">Aide-soignant</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">Avenue El Mouqwama, Agadir</a></li><li><a href="tel:+212528848686">(+212) 528 848 686</a></li><li><a href="https://galien.ma">www.galien.ma</a></li></ul></div>
+  </div></div>
+  <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
+</footer>
+<button id="toTop">↑</button>
+<script src="galien.js"></script>
+<script>
+document.querySelectorAll('.gi img').forEach(img=>img.addEventListener('click',()=>{
+  document.getElementById('lb-img').src=img.src;
+  document.getElementById('lb').classList.add('open');
+}));
+function closeLb(){document.getElementById('lb').classList.remove('open');}
+document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
+</script>
+</body>
+</html>
+
