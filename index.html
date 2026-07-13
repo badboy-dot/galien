@@ -191,11 +191,11 @@
 .hero-seal{
   position:absolute;top:50%;right:60px;transform:translateY(-50%);z-index:4;
   width:175px;height:175px;
-  animation:sealFloat 5s ease-in-out infinite, sealIn .8s 1.2s both;
-  filter:drop-shadow(0 12px 36px rgba(233,30,140,.5)) drop-shadow(0 4px 14px rgba(0,0,0,.4));
+  animation:sealFloat 4s ease-in-out infinite, sealIn .8s 1.2s both, sealGlow 4s ease-in-out infinite;
 }
 .hero-seal img{width:100%;height:100%;object-fit:contain}
-@keyframes sealFloat{0%,100%{transform:translateY(-50%) rotate(0deg)}50%{transform:translateY(calc(-50% - 12px)) rotate(3deg)}}
+@keyframes sealFloat{0%{transform:translateY(-50%) rotate(0deg) scale(1)}25%{transform:translateY(calc(-50% - 14px)) rotate(6deg) scale(1.06)}50%{transform:translateY(calc(-50% - 18px)) rotate(0deg) scale(1.1)}75%{transform:translateY(calc(-50% - 10px)) rotate(-5deg) scale(1.05)}100%{transform:translateY(-50%) rotate(0deg) scale(1)}}
+@keyframes sealGlow{0%,100%{filter:drop-shadow(0 12px 36px rgba(233,30,140,.5)) drop-shadow(0 4px 14px rgba(0,0,0,.4))}50%{filter:drop-shadow(0 0 40px rgba(233,30,140,.95)) drop-shadow(0 0 80px rgba(233,30,140,.5)) drop-shadow(0 4px 14px rgba(0,0,0,.4))}}
 @keyframes sealIn{from{opacity:0;transform:translateY(-50%) scale(.5) rotate(-20deg)}to{opacity:1;transform:translateY(-50%) scale(1) rotate(0deg)}}
 @media(max-width:1000px){.hero-seal{width:130px;height:130px;right:24px}}
 @media(max-width:760px){.hero-seal{width:90px;height:90px;top:auto;bottom:70px;right:16px;transform:none}
