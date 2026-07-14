@@ -9,30 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&family=Great+Vibes&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="galien-style.css"/>
 <style>
-/* ---- Home hero ---- */
-.home-hero{position:relative;min-height:580px;height:88vh;max-height:780px;display:flex;align-items:center;overflow:hidden}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;opacity:0;transition:opacity 1.4s ease;transform:scale(1.04)}
-.hero-slide.on{opacity:1;animation:kenburns 9s ease-out forwards}
-@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.13)}}
-/* white overlay — same as galien.ma */
-.home-hero::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(255,255,255,.90) 0%,rgba(255,255,255,.62) 45%,rgba(255,255,255,.12) 100%)}
-/* single content panel */
-.hero-content{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:0 7%}
-.hero-main-title{font-family:'Dancing Script',cursive;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;line-height:1.28;margin:0 0 18px;opacity:0;animation:hIn .9s .2s forwards}
-.hero-main-title .hpink{color:var(--pink)}
-.hero-main-title .hpurple{color:var(--purple)}
-.hero-arabic-v2{font-family:'Amiri','Scheherazade New',serif;font-size:clamp(1.7rem,3.2vw,2.5rem);color:var(--pink);direction:rtl;font-weight:700;margin:0;opacity:0;animation:hIn .9s .45s forwards}
-/* accreditation at bottom-left */
-.hero-accr{position:absolute;bottom:9%;left:7%;z-index:3;display:flex;align-items:center;gap:14px;opacity:0;animation:hIn .9s .7s forwards}
-.hero-accr-logo{width:90px;height:90px;object-fit:contain;animation:sealFloat 4s ease-in-out infinite}
-.hero-accr-label{font-size:.68rem;font-weight:800;color:var(--purple);letter-spacing:.1em;line-height:1.75;text-transform:uppercase}
-@keyframes sealFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
-@keyframes hIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* ---- Home hero — exact galien.ma match ---- */
+.home-hero{position:relative;min-height:560px;height:86vh;max-height:750px;display:flex;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
+.hero-slide.on{opacity:1}
+/* white gradient overlay — same as galien.ma */
+.home-hero::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.65) 38%,rgba(255,255,255,.22) 68%,rgba(255,255,255,.06) 100%)}
+/* per-slide content panels */
+.hcp{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:8% 5% 8% 20%;opacity:0;pointer-events:none;transition:opacity .7s}
+.hcp.on{opacity:1;pointer-events:auto}
+/* slide 1: "1er Établissement accrédité…" */
+.s1-title{font-family:"Brush Script Std","Brush Script MT",cursive;color:#50338c;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:400;line-height:1.38;margin:0;animation:hIn .8s .15s both}
+.s1-title .s1er{color:var(--pink);font-size:.72em;vertical-align:super;line-height:0}
+/* slides 2-3: "+25 ans expérience…" */
+.sR-title{font-family:"Brush Script Std","Brush Script MT",cursive;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:400;line-height:1.35;margin:0 0 14px;animation:hIn .8s .15s both}
+.sR-title .sR-yrs{color:var(--pink);font-size:1.05em}
+.sR-title .sR-rest{color:#50338c}
+.sR-arabic{font-family:'Amiri',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--pink);direction:rtl;font-weight:700;margin:0;animation:hIn .8s .4s both}
+/* accreditation logo — fixed bottom-left on all slides */
+.hero-accr{position:absolute;bottom:9%;left:20%;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.hero-accr-logo{width:90px;height:90px;object-fit:contain}
+.hero-accr-label{font-size:.63rem;font-weight:800;color:#50338c;letter-spacing:.09em;line-height:1.8;text-transform:uppercase}
+@keyframes hIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 /* slide dots */
-.hero-dots{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);display:flex;gap:10px;z-index:4}
-.hero-dots b{width:30px;height:4px;border-radius:3px;background:rgba(59,42,143,.25);cursor:pointer;transition:.3s}
-.hero-dots b.on{background:var(--pink);width:46px}
-@media(max-width:760px){.home-hero{min-height:420px;height:70vh}.hero-main-title{font-size:clamp(1.7rem,6vw,2.4rem)}.hero-arabic-v2{font-size:1.5rem}.hero-accr-logo{width:65px;height:65px}.hero-accr-label{font-size:.58rem}.hero-accr{bottom:7%;left:5%}}
+.hero-dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:10px;z-index:4}
+.hero-dots b{width:28px;height:4px;border-radius:3px;background:rgba(80,51,140,.25);cursor:pointer;transition:.3s}
+.hero-dots b.on{background:var(--pink);width:44px}
+@media(max-width:760px){.home-hero{min-height:400px;height:68vh}.hcp{padding:6% 5% 6% 6%}.s1-title,.sR-title{font-size:clamp(1.6rem,6vw,2.2rem)}.sR-arabic{font-size:1.4rem}.hero-accr{left:6%;bottom:7%}.hero-accr-logo{width:62px;height:62px}.hero-accr-label{font-size:.55rem}}
 
 /* about split */
 .about-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -258,20 +261,23 @@ body{top:0!important}
 
 <!-- ===== HERO ===== -->
 <section class="home-hero">
+  <!-- 3 slides exactly like galien.ma -->
   <div class="hero-slide on" style="background-image:url('images/s1.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('https://galien.ma/wp-content/uploads/2023/05/videopic.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('https://galien.ma/wp-content/uploads/2023/05/h2_slider.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://galien.ma/wp-content/uploads/2023/05/S2.jpg')"></div>
   <div class="hero-slide" style="background-image:url('https://galien.ma/wp-content/uploads/2023/05/S3-1.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/dsc07224.jpg')"></div>
-  <!-- hero content — same on all slides like galien.ma -->
-  <div class="hero-content">
-    <h1 class="hero-main-title">
-      <span class="hpink">+25 ans</span> <span class="hpurple">expérience dans la formation<br/>aux professions de santé</span>
-    </h1>
-    <p class="hero-arabic-v2">هيؤوا مستقبلكم في مهن نبيلة</p>
+
+  <!-- Slide 1 content: "1er Établissement accrédité au Maroc…" -->
+  <div class="hcp hcp-0 on">
+    <h1 class="s1-title"><span class="s1er">1<sup>er</sup></span> Établissement accrédité au Maroc<br/>dans le secteur paramédical</h1>
   </div>
 
-  <!-- accreditation logo bottom-left -->
+  <!-- Slides 2-3 content: "+25 ans expérience…" + Arabic -->
+  <div class="hcp hcp-rest">
+    <h1 class="sR-title"><span class="sR-yrs">+25 ans</span> <span class="sR-rest">expérience dans la formation<br/>aux professions de santé</span></h1>
+    <p class="sR-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
+  </div>
+
+  <!-- Accreditation logo bottom-left — always visible -->
   <div class="hero-accr">
     <img src="images/accredite.png" alt="Accrédité" class="hero-accr-logo"/>
     <div class="hero-accr-label">DIPLÔMES RECONNUS<br/>ET SIGNÉS PAR L'ÉTAT</div>
