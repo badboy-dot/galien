@@ -14,7 +14,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Roboto',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;overflow-x:hidden}
-h1,h2,h3,h4,.h-title,.eyebrow,.card-body h3,.stat .lbl,.section-title{font-family:'Quicksand',system-ui,sans-serif}
+h2,h3,h4,.h-title,.eyebrow,.card-body h3,.stat .lbl,.section-title{font-family:'Quicksand',system-ui,sans-serif}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
