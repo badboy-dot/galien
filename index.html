@@ -6,36 +6,33 @@
 <title>Institut Galien — Des Métiers de Santé</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&family=Great+Vibes&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playball&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="galien-style.css"/>
 <style>
-/* ---- Home hero — exact galien.ma match ---- */
+/* ---- Home hero — pixel-perfect galien.ma match ---- */
 .home-hero{position:relative;min-height:560px;height:86vh;max-height:750px;display:flex;overflow:hidden}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
 .hero-slide.on{opacity:1}
-/* white gradient overlay — same as galien.ma */
-.home-hero::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.65) 38%,rgba(255,255,255,.22) 68%,rgba(255,255,255,.06) 100%)}
+/* exact same white overlay as galien.ma */
+.home-hero::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.65) 38%,rgba(255,255,255,.20) 68%,rgba(255,255,255,.05) 100%)}
 /* per-slide content panels */
 .hcp{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:8% 5% 8% 20%;opacity:0;pointer-events:none;transition:opacity .7s}
 .hcp.on{opacity:1;pointer-events:auto}
-/* slide 1: "1er Établissement accrédité…" */
-.s1-title{font-family:"Brush Script Std","Brush Script MT",cursive;color:#50338c;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:400;line-height:1.38;margin:0;animation:hIn .8s .15s both}
-.s1-title .s1er{color:var(--pink);font-size:.72em;vertical-align:super;line-height:0}
-/* slides 2-3: "+25 ans expérience…" */
-.sR-title{font-family:"Brush Script Std","Brush Script MT",cursive;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:400;line-height:1.35;margin:0 0 14px;animation:hIn .8s .15s both}
-.sR-title .sR-yrs{color:var(--pink);font-size:1.05em}
-.sR-title .sR-rest{color:#50338c}
-.sR-arabic{font-family:'Amiri',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--pink);direction:rtl;font-weight:700;margin:0;animation:hIn .8s .4s both}
-/* accreditation logo — fixed bottom-left on all slides */
+/* ALL French headlines: Brush Script Std exactly like galien.ma */
+.gal-title{font-family:"Brush Script Std","Brush Script MT",cursive;color:#50338c;font-size:clamp(2.2rem,3.8vw,3.5rem);font-weight:400;line-height:1.4;margin:0 0 10px;animation:hIn .8s .1s both}
+.gal-title .gal-pink{color:#d65c97}
+/* Arabic: Playball font exactly like galien.ma, pink color rgb(214,92,151) */
+.gal-arabic{font-family:'Playball',cursive;font-size:clamp(1.8rem,3.2vw,2.6rem);color:#d65c97;direction:rtl;margin:0;animation:hIn .8s .35s both}
+/* accreditation bottom-left on ALL slides */
 .hero-accr{position:absolute;bottom:9%;left:20%;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
 .hero-accr-logo{width:90px;height:90px;object-fit:contain}
 .hero-accr-label{font-size:.63rem;font-weight:800;color:#50338c;letter-spacing:.09em;line-height:1.8;text-transform:uppercase}
-@keyframes hIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-/* slide dots */
+@keyframes hIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* dots */
 .hero-dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:10px;z-index:4}
 .hero-dots b{width:28px;height:4px;border-radius:3px;background:rgba(80,51,140,.25);cursor:pointer;transition:.3s}
-.hero-dots b.on{background:var(--pink);width:44px}
-@media(max-width:760px){.home-hero{min-height:400px;height:68vh}.hcp{padding:6% 5% 6% 6%}.s1-title,.sR-title{font-size:clamp(1.6rem,6vw,2.2rem)}.sR-arabic{font-size:1.4rem}.hero-accr{left:6%;bottom:7%}.hero-accr-logo{width:62px;height:62px}.hero-accr-label{font-size:.55rem}}
+.hero-dots b.on{background:#d65c97;width:44px}
+@media(max-width:760px){.home-hero{min-height:380px;height:65vh}.hcp{padding:6% 4% 6% 5%}.gal-title{font-size:clamp(1.6rem,6.5vw,2.2rem)}.gal-arabic{font-size:1.5rem}.hero-accr{left:5%;bottom:6%}.hero-accr-logo{width:60px;height:60px}}
 
 /* about split */
 .about-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -268,23 +265,23 @@ body{top:0!important}
 
   <!-- Slide 1: "1er Établissement accrédité au Maroc dans le secteur paramédical" -->
   <div class="hcp hcp-0 on">
-    <h1 class="s1-title"><span class="s1er">1<sup>er</sup></span> Établissement accrédité au Maroc<br/>dans le secteur paramédical</h1>
+    <h1 class="gal-title"><span class="gal-pink">1<sup>er</sup></span> Établissement accrédité au Maroc<br/>dans le secteur paramédical</h1>
   </div>
 
-  <!-- Slide 2: "20 ans expérience dans la formation aux professions de santé" + Arabic -->
+  <!-- Slide 2: "20 ans expérience…" + Arabic هيؤوا مستقبلكم -->
   <div class="hcp hcp-1">
-    <h1 class="sR-title"><span class="sR-yrs">20 ans</span> <span class="sR-rest">expérience dans la formation<br/>aux professions de santé</span></h1>
-    <p class="sR-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
+    <h1 class="gal-title"><span class="gal-pink">20 ans</span> expérience dans la formation<br/>aux professions de santé</h1>
+    <p class="gal-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
   </div>
 
   <!-- Slide 3: "Préparez votre avenir dans un secteur qui recrute" -->
   <div class="hcp hcp-2">
-    <h1 class="sR-title"><span class="sR-yrs">Préparez</span> <span class="sR-rest">votre avenir dans un secteur<br/>qui recrute</span></h1>
+    <h1 class="gal-title">Préparez votre avenir<br/>dans un secteur qui recrute</h1>
   </div>
 
-  <!-- Accreditation logo bottom-left — always visible -->
+  <!-- Accreditation logo bottom-left — on all slides, exact same as galien.ma -->
   <div class="hero-accr">
-    <img src="images/accredite.png" alt="Accrédité" class="hero-accr-logo"/>
+    <img src="//galien.ma/wp-content/uploads/2022/06/accredite_02.png" alt="Accrédité" class="hero-accr-logo"/>
     <div class="hero-accr-label">DIPLÔMES RECONNUS<br/>ET SIGNÉS PAR L'ÉTAT</div>
   </div>
 
