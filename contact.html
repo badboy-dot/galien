@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="galien-style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
 .info-card{background:var(--light);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
@@ -50,8 +51,8 @@ body{top:0!important}
 <body>
 
 <div class="topbar"><div class="container">
-  <div class="tb-info"><span>📞 <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm">📍 Avenue El Mouqwama, Agadir 80000</span></div>
-        <div id="google_translate_element"></div><div class="tb-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+  <div class="tb-info"><span><i class="fa-solid fa-phone"></i> <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm"><i class="fa-solid fa-location-dot"></i> Avenue El Mouqwama, Agadir 80000</span></div>
+        <div id="google_translate_element"></div><div class="tb-social"><a href="#">Facebook</a><a href="https://www.instagram.com/institutgalien.officiel" target="_blank">Instagram</a><a href="https://www.youtube.com/@InstitueGalien" target="_blank">YouTube</a></div>
 </div></div>
 <header id="site-header"><div class="container"><nav class="nav">
   <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
@@ -78,9 +79,9 @@ body{top:0!important}
         <span class="eyebrow">Nous contacter</span>
         <h2 class="h-title">À votre <span class="accent">écoute</span></h2>
         <p class="lead" style="margin:16px 0 26px">Une question, une demande d'information ou une inscription ? Notre équipe vous répond.</p>
-        <div class="info-card"><div class="ic">📍</div><div><h4>Adresse</h4><p>Avenue El Mouqwama, Agadir 80000, Maroc</p></div></div>
-        <div class="info-card"><div class="ic">📞</div><div><h4>Téléphone</h4><p><a href="tel:+212528848686">(+212) 528 848 686</a></p><p style="font-size:.8rem">Lun – Sam : 8h00 – 18h00</p></div></div>
-        <div class="info-card"><div class="ic">🌐</div><div><h4>Site & réseaux</h4><p><a href="https://galien.ma">www.galien.ma</a></p></div></div>
+        <div class="info-card"><div class="ic"><i class="fa-solid fa-location-dot"></i></div><div><h4>Adresse</h4><p>Avenue El Mouqwama, Agadir 80000, Maroc</p></div></div>
+        <div class="info-card"><div class="ic"><i class="fa-solid fa-phone"></i></div><div><h4>Téléphone</h4><p><a href="tel:+212528848686">(+212) 528 848 686</a></p><p style="font-size:.8rem">Lun – Sam : 8h00 – 18h00</p></div></div>
+        <div class="info-card"><div class="ic"><i class="fa-solid fa-globe"></i></div><div><h4>Site & réseaux</h4><p><a href="https://galien.ma">www.galien.ma</a></p></div></div>
       </div>
 
       <!-- Form -->
@@ -114,9 +115,9 @@ body{top:0!important}
                 <option>Vente en pharmacie</option><option>Formation continue (Licence/Master)</option>
               </select>
             </div>
-            <div id="docs" class="docs">📎 Sélectionnez votre niveau pour voir les documents à joindre.</div>
+            <div id="docs" class="docs"><i class="fa-solid fa-paperclip"></i> Sélectionnez votre niveau pour voir les documents à joindre.</div>
             <div class="fg"><label>Message (optionnel)</label><textarea placeholder="Votre message…"></textarea></div>
-            <button type="submit" class="submit">Envoyer ma candidature ✨</button>
+            <button type="submit" class="submit">Envoyer ma candidature</button>
           </form>
         </div>
       </div>
@@ -147,17 +148,17 @@ function googleTranslateElementInit(){
 <script src="galien.js"></script>
 <script>
 const docsByLevel={
-  'bac':[['Diplôme du Baccalauréat','🎓'],['Carte d\'identité nationale (CIN)','🪪']],
-  'niveau-bac':[['Relevé de notes du BAC','📄'],['Carte d\'identité nationale (CIN)','🪪']],
-  'college':[['Certificat de scolarité','📜'],['Carte d\'identité nationale (CIN)','🪪']],
-  'pro':[['Diplôme professionnel','🎓'],['Carte d\'identité nationale (CIN)','🪪']]
+  'bac':[['Diplôme du Baccalauréat','<i class="fa-solid fa-graduation-cap"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
+  'niveau-bac':[['Relevé de notes du BAC','<i class="fa-solid fa-file"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
+  'college':[['Certificat de scolarité','<i class="fa-solid fa-scroll"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
+  'pro':[['Diplôme professionnel','<i class="fa-solid fa-graduation-cap"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']]
 };
 function updateDocs(){
   const lvl=document.getElementById('niveau').value;
   const zone=document.getElementById('docs');
   const docs=docsByLevel[lvl];
   if(!docs){zone.innerHTML='📎 Sélectionnez votre niveau pour voir les documents à joindre.';return;}
-  let h='<div style="font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:1px;font-size:.72rem;margin-bottom:10px">📎 Documents à joindre</div>';
+  let h='<div style="font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:1px;font-size:.72rem;margin-bottom:10px"><i class="fa-solid fa-paperclip"></i> Documents à joindre</div>';
   docs.forEach((d,i)=>{h+=`<div style="margin-bottom:6px"><label style="font-size:.8rem;font-weight:600;color:var(--ink)">${d[0]}</label>
     <label class="upbox" id="ub${i}"><input type="file" accept="image/*,.pdf" onchange="fileSel(this,${i})" required/>
     <span class="uic">${d[1]}</span><span><small>Cliquez pour téléverser</small><em>JPG, PNG ou PDF</em></span></label></div>`;});
@@ -169,7 +170,7 @@ function fileSel(input,i){
     const n=input.files[0].name;
     box.querySelector('small').textContent='✓ '+(n.length>26?n.slice(0,23)+'…':n);
     box.querySelector('em').textContent='Fichier ajouté';
-    box.querySelector('.uic').textContent='✅';}
+    box.querySelector('.uic').innerHTML='<i class="fa-solid fa-circle-check"></i>';}
 }
 </script>
 </body>
