@@ -10,58 +10,29 @@
 <link rel="stylesheet" href="galien-style.css"/>
 <style>
 /* ---- Home hero ---- */
-.home-hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;transform:scale(1.05)}
-.hero-slide.on{opacity:1;animation:kenburns 8s ease-out forwards}
-@keyframes kenburns{from{transform:scale(1.05)}to{transform:scale(1.16)}}
-/* overlay switches per slide */
-.home-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,12,40,.9) 0%,rgba(59,42,143,.62) 55%,rgba(233,30,140,.32) 100%);transition:opacity .8s}
-.home-hero.slide-0::after{background:linear-gradient(105deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.6) 45%,rgba(255,255,255,.05) 100%)}
-/* content panels */
-.hcp{position:absolute;inset:0;z-index:3;display:flex;align-items:center;opacity:0;pointer-events:none;transition:opacity .8s}
-.hcp.on{opacity:1;pointer-events:auto}
-/* slide 1 panel */
-.hcp-0{align-items:stretch}
-.hcp0-inner{position:absolute;inset:0}
-.hcp0-title{position:absolute;top:18%;left:6%;font-family:'Great Vibes','Dancing Script',cursive;font-size:clamp(1.4rem,2.6vw,2.3rem);color:#3b2a8f;font-weight:400;line-height:1.5;max-width:420px}
-.hcp0-sup{font-family:'Great Vibes','Dancing Script',cursive;font-size:.65em;color:var(--pink);vertical-align:super;line-height:0}
-.hcp0-bottom{position:absolute;bottom:12%;left:6%;display:flex;align-items:center;gap:14px}
-.hcp0-logo{width:80px;height:80px;object-fit:contain;animation:sealFloat 4s ease-in-out infinite,sealGlow 4s ease-in-out infinite;flex-shrink:0}
-.hcp0-label{font-size:.65rem;font-weight:800;color:#3b2a8f;letter-spacing:.1em;line-height:1.65;text-transform:uppercase;max-width:160px}
-/* rest slides panel */
-.hcp-rest{padding-top:40px;padding-bottom:60px}
-.hcp-rest .container{position:relative;z-index:1;color:#fff}
-@media(max-width:760px){.hcp0-title{font-size:1.3rem;top:20%;left:5%}.hcp0-logo{width:58px;height:58px}.hcp0-label{font-size:.58rem}.hcp0-bottom{bottom:10%;left:5%}}
-/* decorative orbs */
-.hero-orb{position:absolute;border-radius:50%;filter:blur(8px);z-index:1;pointer-events:none}
-.hero-orb.o1{width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,140,.45),transparent 70%);top:-80px;right:8%;animation:floaty 9s ease-in-out infinite}
-.hero-orb.o2{width:220px;height:220px;background:radial-gradient(circle,rgba(120,90,255,.4),transparent 70%);bottom:6%;left:-40px;animation:floaty 11s ease-in-out infinite reverse}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
-.home-hero .container{position:relative;z-index:3;color:#fff;padding-top:40px;padding-bottom:60px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(233,30,140,.18);border:1px solid rgba(233,30,140,.45);color:#fff;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:50px;margin-bottom:22px;backdrop-filter:blur(4px);opacity:0;animation:hIn .7s .2s forwards}
-.hero-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(233,30,140,.6);animation:beat 1.6s infinite}
-@keyframes beat{0%,100%{box-shadow:0 0 0 0 rgba(233,30,140,.55)}70%{box-shadow:0 0 0 12px rgba(233,30,140,0)}}
-.home-hero h1{font-size:clamp(2.4rem,5.4vw,4.3rem);font-weight:800;line-height:1.1;margin-bottom:22px;max-width:880px;letter-spacing:-.5px;opacity:0;animation:hIn .8s .35s forwards}
-.home-hero h1 .accent{background:linear-gradient(90deg,var(--pink),#ff7ac4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-years{font-family:'Dancing Script','Pacifico',cursive;font-size:1.18em;font-weight:700;color:var(--pink);font-style:italic;-webkit-text-fill-color:var(--pink)}
-.home-hero .sub{font-size:1.14rem;color:rgba(255,255,255,.92);max-width:580px;margin-bottom:34px;opacity:0;animation:hIn .8s .5s forwards}
-.hero-arabic{font-size:2.6rem!important;font-family:'Scheherazade New','Amiri',serif;direction:rtl;color:#fff!important;letter-spacing:0;font-weight:700;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 12px rgba(0,0,0,.3)}
-.home-hero .btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:hIn .8s .65s forwards}
-.hero-trust{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap;opacity:0;animation:hIn .8s .8s forwards}
-.hero-trust .t{display:flex;align-items:center;gap:10px}
-.hero-trust .t b{font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
-.hero-trust .t span{font-size:.78rem;color:rgba(255,255,255,.75);line-height:1.2}
-.hero-trust .t .star{color:#ffd23f;font-size:1rem;letter-spacing:1px}
-.hero-trust .div{width:1px;background:rgba(255,255,255,.2)}
-@keyframes hIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.home-hero{position:relative;min-height:580px;height:88vh;max-height:780px;display:flex;align-items:center;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;opacity:0;transition:opacity 1.4s ease;transform:scale(1.04)}
+.hero-slide.on{opacity:1;animation:kenburns 9s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.13)}}
+/* white overlay — same as galien.ma */
+.home-hero::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(255,255,255,.90) 0%,rgba(255,255,255,.62) 45%,rgba(255,255,255,.12) 100%)}
+/* single content panel */
+.hero-content{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:0 7%}
+.hero-main-title{font-family:'Dancing Script',cursive;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;line-height:1.28;margin:0 0 18px;opacity:0;animation:hIn .9s .2s forwards}
+.hero-main-title .hpink{color:var(--pink)}
+.hero-main-title .hpurple{color:var(--purple)}
+.hero-arabic-v2{font-family:'Amiri','Scheherazade New',serif;font-size:clamp(1.7rem,3.2vw,2.5rem);color:var(--pink);direction:rtl;font-weight:700;margin:0;opacity:0;animation:hIn .9s .45s forwards}
+/* accreditation at bottom-left */
+.hero-accr{position:absolute;bottom:9%;left:7%;z-index:3;display:flex;align-items:center;gap:14px;opacity:0;animation:hIn .9s .7s forwards}
+.hero-accr-logo{width:90px;height:90px;object-fit:contain;animation:sealFloat 4s ease-in-out infinite}
+.hero-accr-label{font-size:.68rem;font-weight:800;color:var(--purple);letter-spacing:.1em;line-height:1.75;text-transform:uppercase}
+@keyframes sealFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes hIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 /* slide dots */
-.hero-dots{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;gap:10px;z-index:4}
-.hero-dots b{width:30px;height:4px;border-radius:3px;background:rgba(255,255,255,.35);cursor:pointer;transition:.3s}
+.hero-dots{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);display:flex;gap:10px;z-index:4}
+.hero-dots b{width:30px;height:4px;border-radius:3px;background:rgba(59,42,143,.25);cursor:pointer;transition:.3s}
 .hero-dots b.on{background:var(--pink);width:46px}
-.scroll-ind{position:absolute;bottom:24px;right:34px;z-index:4;color:rgba(255,255,255,.8);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
-.scroll-ind::after{content:"";width:1px;height:34px;background:rgba(255,255,255,.5);animation:sc 1.6s infinite}
-@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@media(max-width:760px){.scroll-ind{display:none}.hero-trust .div{display:none}}
+@media(max-width:760px){.home-hero{min-height:420px;height:70vh}.hero-main-title{font-size:clamp(1.7rem,6vw,2.4rem)}.hero-arabic-v2{font-size:1.5rem}.hero-accr-logo{width:65px;height:65px}.hero-accr-label{font-size:.58rem}.hero-accr{bottom:7%;left:5%}}
 
 /* about split */
 .about-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -292,38 +263,21 @@ body{top:0!important}
   <div class="hero-slide" style="background-image:url('https://galien.ma/wp-content/uploads/2023/05/h2_slider.jpg')"></div>
   <div class="hero-slide" style="background-image:url('https://galien.ma/wp-content/uploads/2023/05/S3-1.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/dsc07224.jpg')"></div>
-  <div class="hero-orb o1"></div>
-  <div class="hero-orb o2"></div>
-
-  <!-- SLIDE 1 content — custom layout like screenshot -->
-  <div class="hcp hcp-0 on">
-    <div class="hcp0-inner">
-      <h1 class="hcp0-title"><sup class="hcp0-sup">1<span>er</span></sup> Établissement accrédité au Maroc<br/>dans le secteur paramédical</h1>
-    </div>
+  <!-- hero content — same on all slides like galien.ma -->
+  <div class="hero-content">
+    <h1 class="hero-main-title">
+      <span class="hpink">+25 ans</span> <span class="hpurple">expérience dans la formation<br/>aux professions de santé</span>
+    </h1>
+    <p class="hero-arabic-v2">هيؤوا مستقبلكم في مهن نبيلة</p>
   </div>
 
-  <!-- SLIDES 2-5 content — dark overlay + full text -->
-  <div class="hcp hcp-rest">
-    <div class="container">
-      <span class="hero-eyebrow">1er établissement accrédité au Maroc</span>
-      <h1><span class="hero-years">+25 ans</span> expérience dans la formation<br/>aux professions de santé</h1>
-      <p class="sub hero-arabic">هيؤوا مستقبلكم في مهن نبيلة</p>
-      <div class="btns">
-        <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant</a>
-        <a href="#video" class="btn btn-light" data-video>▶ Voir la vidéo</a>
-      </div>
-      <div class="hero-trust">
-        <div class="t"><b>25+</b><span>Ans<br/>d'expérience</span></div>
-        <div class="div"></div>
-        <div class="t"><b>2500+</b><span>Diplômés<br/>formés</span></div>
-        <div class="div"></div>
-        <div class="t"><div><div class="star">★★★★★</div><span>Établissement<br/>accrédité par l'État</span></div></div>
-      </div>
-    </div>
+  <!-- accreditation logo bottom-left -->
+  <div class="hero-accr">
+    <img src="images/accredite.png" alt="Accrédité" class="hero-accr-logo"/>
+    <div class="hero-accr-label">DIPLÔMES RECONNUS<br/>ET SIGNÉS PAR L'ÉTAT</div>
   </div>
 
   <div class="hero-dots" id="heroDots"></div>
-  <div class="scroll-ind">Découvrir</div>
 </section>
 
 <!-- ===== STATS ===== -->
