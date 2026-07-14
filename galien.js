@@ -177,4 +177,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const old = b.textContent; b.textContent = '✅ Message envoyé !'; b.style.background = '#2ecc71';
     setTimeout(() => { b.textContent = old; b.style.background = ''; cf.reset(); }, 3000);
   });
+
+  // Video unmute button
+  const vbUnmute = document.getElementById('vbUnmute');
+  const vbFrame = document.getElementById('vbFrame');
+  let muted = true;
+  if (vbUnmute && vbFrame) {
+    vbUnmute.addEventListener('click', () => {
+      muted = !muted;
+      const url = new URL(vbFrame.src);
+      url.searchParams.set('mute', muted ? '1' : '0');
+      vbFrame.src = url.toString();
+      vbUnmute.classList.toggle('muted', muted);
+      vbUnmute.classList.toggle('unmuted', !muted);
+      vbUnmute.textContent = muted ? 'Activer le son' : 'Couper le son';
+    });
+  }
 });
