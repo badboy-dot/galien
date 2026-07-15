@@ -1,7 +1,6 @@
 /* Institut Galien — comportements partagés */
 function setLang(lang){
   var base='https://badboy-dot-github-io.translate.goog/galien/';
-  // Get current page path relative to /galien/
   var path=window.location.pathname.replace(/^\/galien\/?/,'');
   if(lang==='fr'){
     window.location='https://badboy-dot.github.io/galien/'+(path||'');
@@ -27,7 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll-to-top
   if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Reveal on scroll
+  // ── STAGGER: add cascading delays to grid children BEFORE observer runs ──
+  const staggerGrids = '.grid-3,.grid-4,.tgrid,.mvv,.ped-grid,.eng-grid,.steps,.faq-grid,.stage2-grid,.part-nat-grid,.part-intl-grid,.bourse-split-cards,.binst-list';
+  document.querySelectorAll(staggerGrids).forEach(grid => {
+    [...grid.children].forEach((child, i) => {
+      if (!child.hasAttribute('data-reveal')) child.setAttribute('data-reveal', '');
+      child.style.transitionDelay = (i * 0.1) + 's';
+    });
+  });
+
+  // Reveal on scroll (runs AFTER stagger delays are set)
   const obs = new IntersectionObserver((es) => {
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: .12 });
@@ -78,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     restart();
   }
 
-  // Formations filter (Formations page)
+  // Formations filter
   window.filterF = (cat, btn) => {
     document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -87,16 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // ===== POPUP MODALS (inscription + vidéo) =====
+  // ===== POPUP MODALS =====
   const YT_ID = 'wj4PTZdAb40';
-  // build inscription modal
   const insc = document.createElement('div');
   insc.className = 'gmodal';
   insc.id = 'inscModal';
   insc.innerHTML = `
     <div class="gmodal-box">
       <button class="gmodal-x" data-close>&times;</button>
-      <div class="gmodal-head"><h3>Inscription en ligne ✨</h3><p>Remplissez ce formulaire, nous vous recontactons rapidement.</p></div>
+      <div class="gmodal-head"><h3>Inscription en ligne</h3><p>Remplissez ce formulaire, nous vous recontactons rapidement.</p></div>
       <div class="gmodal-body">
         <form id="inscQuick">
           <div class="gm-row">
@@ -122,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>`;
   document.body.appendChild(insc);
 
-  // build video modal
   const vid = document.createElement('div');
   vid.className = 'gmodal gmodal-video';
   vid.id = 'vidModal';
@@ -135,11 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (m === vid) m.querySelector('.frame').innerHTML = '';
   };
 
-  // triggers: S'inscrire (nav + anything with data-inscrire)
   document.querySelectorAll('.nav-cta, [data-inscrire]').forEach(el => {
     el.addEventListener('click', e => { e.preventDefault(); openM(insc); });
   });
-  // triggers: video
   document.querySelectorAll('[data-video]').forEach(el => {
     el.addEventListener('click', e => {
       e.preventDefault();
@@ -148,20 +152,18 @@ document.addEventListener('DOMContentLoaded', () => {
       openM(vid);
     });
   });
-  // close handlers
   [insc, vid].forEach(m => {
     m.addEventListener('click', e => { if (e.target === m || e.target.hasAttribute('data-close')) closeM(m); });
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeM(insc); closeM(vid); } });
-  // quick form submit
   const iq = document.getElementById('inscQuick');
   if (iq) iq.addEventListener('submit', ev => {
     ev.preventDefault();
-    const b = iq.querySelector('.gm-submit'); b.textContent = '✅ Demande envoyée !'; b.style.background = '#2ecc71';
+    const b = iq.querySelector('.gm-submit'); b.textContent = 'Demande envoyée !'; b.style.background = '#2ecc71';
     setTimeout(() => { closeM(insc); b.textContent = 'Envoyer ma demande'; b.style.background = ''; iq.reset(); }, 1800);
   });
 
-  // Language switcher — highlight active button based on cookie
+  // Language switcher
   const langMap = {'fr':'ls-fr','en':'ls-en','ar':'ls-ar'};
   const cookieLang = (document.cookie.match(/googtrans=\/fr\/([a-z]+)/)||[])[1]||'fr';
   Object.values(langMap).forEach(id=>{const b=document.getElementById(id);if(b)b.classList.remove('active')});
@@ -169,12 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const activeBtn = document.getElementById(activeId);
   if(activeBtn) activeBtn.classList.add('active');
 
-  // Contact form (demo)
+  // Contact form
   const cf = document.getElementById('contactForm');
   if (cf) cf.addEventListener('submit', (ev) => {
     ev.preventDefault();
     const b = cf.querySelector('[type=submit]');
-    const old = b.textContent; b.textContent = '✅ Message envoyé !'; b.style.background = '#2ecc71';
+    const old = b.textContent; b.textContent = 'Message envoyé !'; b.style.background = '#2ecc71';
     setTimeout(() => { b.textContent = old; b.style.background = ''; cf.reset(); }, 3000);
   });
 
@@ -189,18 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollBar.style.width = Math.min(pct, 100) + '%';
   }, { passive: true });
 
-  // Stagger grid children — cascading delay
-  const staggerSelectors = '.grid-3,.grid-4,.tgrid,.mvv,.ped-grid,.eng-grid,.steps,.faq-grid,.stage2-grid,.part-nat-grid,.part-intl-grid,.campus-grid,.bourse-split-cards,.binst-list';
-  document.querySelectorAll(staggerSelectors).forEach(grid => {
-    grid.classList.add('stagger');
-    if (!grid.hasAttribute('data-reveal')) grid.setAttribute('data-reveal', '');
-    [...grid.children].forEach((child, i) => {
-      child.style.transitionDelay = (i * 0.09) + 's';
-    });
-    obs.observe(grid);
-  });
-
-  // Ripple effect on all buttons
+  // Ripple effect on buttons
   document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
       const r = document.createElement('span');
@@ -214,14 +205,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 3D card tilt on hover
-  const tiltEls = document.querySelectorAll('.card,.tcard,.deb-card,.mvv-card,.step,.fac-card');
-  tiltEls.forEach(el => {
+  document.querySelectorAll('.card,.tcard,.deb-card,.mvv-card,.step,.fac-card').forEach(el => {
     el.addEventListener('mousemove', function(e) {
       const rect = this.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
       this.style.transform = `translateY(-7px) perspective(600px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg)`;
-      this.style.transition = 'transform .08s ease';
+      this.style.transition = 'transform .08s';
     });
     el.addEventListener('mouseleave', function() {
       this.style.transform = '';
@@ -229,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Parallax on page-hero backgrounds
+  // Parallax on page-hero
   const pageHero = document.querySelector('.page-hero');
   if (pageHero) {
     window.addEventListener('scroll', () => {
@@ -237,17 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // Floating orbs in dark gradient sections
+  // Floating orbs in dark sections
   document.querySelectorAll('.section[style*="dark"],.section[style*="purple"],.video-band,.stats').forEach(sec => {
-    sec.style.position = 'relative';
+    if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
     sec.style.overflow = 'hidden';
     [
-      { w: 360, h: 360, t: '-80px', r: '-60px', c: 'rgba(233,30,140,.10)', d: '0s' },
-      { w: 260, h: 260, b: '-60px', l: '-40px', c: 'rgba(59,42,143,.14)', d: '3s' }
+      { w:360, h:360, top:'-80px', right:'-60px', c:'rgba(233,30,140,.09)', d:'0s' },
+      { w:260, h:260, bottom:'-60px', left:'-40px', c:'rgba(80,51,140,.13)', d:'3s' }
     ].forEach(o => {
       const orb = document.createElement('div');
       orb.className = 'orb';
-      orb.style.cssText = `width:${o.w}px;height:${o.h}px;background:radial-gradient(circle,${o.c},transparent 70%);${o.t ? 'top:' + o.t : ''};${o.r ? 'right:' + o.r : ''};${o.b ? 'bottom:' + o.b : ''};${o.l ? 'left:' + o.l : ''};animation-delay:${o.d}`;
+      orb.style.cssText = `width:${o.w}px;height:${o.h}px;background:radial-gradient(circle,${o.c},transparent 70%);position:absolute;border-radius:50%;pointer-events:none;animation:orbDrift 9s ease-in-out ${o.d} infinite;${o.top?'top:'+o.top+';':''}${o.right?'right:'+o.right+';':''}${o.bottom?'bottom:'+o.bottom+';':''}${o.left?'left:'+o.left+';':''}`;
       sec.appendChild(orb);
     });
   });

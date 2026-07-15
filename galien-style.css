@@ -198,10 +198,6 @@ body{animation:pageIn .55s ease both}
 .btn .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.38);transform:scale(0);animation:rippleAnim .6s linear;pointer-events:none}
 @keyframes rippleAnim{to{transform:scale(4.5);opacity:0}}
 
-/* Stagger children — JS adds .stagger to grids, delays applied inline */
-[data-reveal].stagger > *{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-[data-reveal].stagger.visible > *{opacity:1;transform:none}
-
 /* 3D card tilt — JS adds transform via mousemove, restore here */
 .card,.tcard,.deb-card,.fac-card,.feature,.step,.mvv-card{transform-style:preserve-3d;will-change:transform}
 
