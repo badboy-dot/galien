@@ -175,6 +175,65 @@ a{text-decoration:none;color:inherit}
 .btn-pink:hover::after{left:140%}
 .anim-grad{background:linear-gradient(120deg,var(--dark),var(--purple),#5a2b8f,var(--purple));background-size:300% 300%;animation:gradShift 9s ease infinite}
 
+/* =====================  PREMIUM ANIMATIONS  ===================== */
+
+/* Page fade-in on load */
+@keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+body{animation:pageIn .55s ease both}
+
+/* Scroll progress bar */
+.scroll-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--purple),var(--pink),#ff8fcb);z-index:10000;pointer-events:none;transition:width .08s linear;border-radius:0 3px 3px 0;box-shadow:0 0 8px rgba(233,30,140,.5)}
+
+/* Animated accent underline — grows when section scrolls in */
+.h-title .accent{position:relative;display:inline}
+.h-title .accent::after{content:"";position:absolute;left:0;bottom:-3px;height:3px;width:0;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:2px;transition:width .9s cubic-bezier(.22,1,.36,1) .25s;display:block}
+[data-reveal].visible .h-title .accent::after,.center.visible .h-title .accent::after{width:100%}
+
+/* Icon pop-in when feature cards become visible */
+@keyframes icPop{0%{transform:scale(0) rotate(-20deg);opacity:0}70%{transform:scale(1.15) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+[data-reveal].visible .ic{animation:icPop .55s cubic-bezier(.34,1.56,.64,1) .1s both}
+
+/* Ripple on button clicks */
+.btn{position:relative;overflow:hidden}
+.btn .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.38);transform:scale(0);animation:rippleAnim .6s linear;pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(4.5);opacity:0}}
+
+/* Stagger children — JS adds .stagger to grids, delays applied inline */
+[data-reveal].stagger > *{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+[data-reveal].stagger.visible > *{opacity:1;transform:none}
+
+/* 3D card tilt — JS adds transform via mousemove, restore here */
+.card,.tcard,.deb-card,.fac-card,.feature,.step,.mvv-card{transform-style:preserve-3d;will-change:transform}
+
+/* Eyebrow shimmer shine */
+@keyframes eyeShimmer{0%{left:-120%}60%,100%{left:150%}}
+.eyebrow{position:relative;overflow:hidden}
+.eyebrow::before{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-15deg);animation:eyeShimmer 4s ease-in-out infinite}
+
+/* Stats hover lift */
+.stat{transition:transform .3s,background .3s;cursor:default}
+.stat:hover{transform:translateY(-6px);background:rgba(255,255,255,.06)}
+
+/* Smooth shine on purple/dark buttons */
+.btn-purple{position:relative;overflow:hidden}
+.btn-purple::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn-purple:hover::after{left:140%}
+
+/* Floating orb decorations in dark sections */
+@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-22px,16px) scale(1.08)}66%{transform:translate(14px,-18px) scale(.94)}}
+.orb{position:absolute;border-radius:50%;pointer-events:none;animation:orbDrift 9s ease-in-out infinite}
+
+/* Page-hero parallax handled via JS */
+.page-hero{overflow:hidden}
+
+/* Smooth underline on footer links already exists — enhance */
+.footer-col a{display:inline-block}
+
+/* Pulse ring on scroll-to-top button */
+@keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(233,30,140,.6)}70%{box-shadow:0 0 0 12px rgba(233,30,140,0)}100%{box-shadow:0 0 0 0 rgba(233,30,140,0)}}
+#toTop.show{animation:ringPulse 2.4s ease-in-out infinite}
+#toTop:hover{animation:none}
+
 /* =====================  RESPONSIVE  ===================== */
 @media(max-width:960px){
   .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}

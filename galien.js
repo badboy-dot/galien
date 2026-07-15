@@ -178,6 +178,80 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { b.textContent = old; b.style.background = ''; cf.reset(); }, 3000);
   });
 
+  // ===== PREMIUM ANIMATIONS =====
+
+  // Scroll progress bar
+  const scrollBar = document.createElement('div');
+  scrollBar.className = 'scroll-bar';
+  document.body.prepend(scrollBar);
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    scrollBar.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+
+  // Stagger grid children — cascading delay
+  const staggerSelectors = '.grid-3,.grid-4,.tgrid,.mvv,.ped-grid,.eng-grid,.steps,.faq-grid,.stage2-grid,.part-nat-grid,.part-intl-grid,.campus-grid,.bourse-split-cards,.binst-list';
+  document.querySelectorAll(staggerSelectors).forEach(grid => {
+    grid.classList.add('stagger');
+    if (!grid.hasAttribute('data-reveal')) grid.setAttribute('data-reveal', '');
+    [...grid.children].forEach((child, i) => {
+      child.style.transitionDelay = (i * 0.09) + 's';
+    });
+    obs.observe(grid);
+  });
+
+  // Ripple effect on all buttons
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const r = document.createElement('span');
+      r.className = 'ripple';
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px;position:absolute`;
+      this.appendChild(r);
+      r.addEventListener('animationend', () => r.remove());
+    });
+  });
+
+  // 3D card tilt on hover
+  const tiltEls = document.querySelectorAll('.card,.tcard,.deb-card,.mvv-card,.step,.fac-card');
+  tiltEls.forEach(el => {
+    el.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      this.style.transform = `translateY(-7px) perspective(600px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg)`;
+      this.style.transition = 'transform .08s ease';
+    });
+    el.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+      this.style.transition = 'transform .45s ease';
+    });
+  });
+
+  // Parallax on page-hero backgrounds
+  const pageHero = document.querySelector('.page-hero');
+  if (pageHero) {
+    window.addEventListener('scroll', () => {
+      pageHero.style.backgroundPositionY = (50 + window.scrollY * 0.18) + '%';
+    }, { passive: true });
+  }
+
+  // Floating orbs in dark gradient sections
+  document.querySelectorAll('.section[style*="dark"],.section[style*="purple"],.video-band,.stats').forEach(sec => {
+    sec.style.position = 'relative';
+    sec.style.overflow = 'hidden';
+    [
+      { w: 360, h: 360, t: '-80px', r: '-60px', c: 'rgba(233,30,140,.10)', d: '0s' },
+      { w: 260, h: 260, b: '-60px', l: '-40px', c: 'rgba(59,42,143,.14)', d: '3s' }
+    ].forEach(o => {
+      const orb = document.createElement('div');
+      orb.className = 'orb';
+      orb.style.cssText = `width:${o.w}px;height:${o.h}px;background:radial-gradient(circle,${o.c},transparent 70%);${o.t ? 'top:' + o.t : ''};${o.r ? 'right:' + o.r : ''};${o.b ? 'bottom:' + o.b : ''};${o.l ? 'left:' + o.l : ''};animation-delay:${o.d}`;
+      sec.appendChild(orb);
+    });
+  });
+
   // Video unmute button
   const vbUnmute = document.getElementById('vbUnmute');
   const vbFrame = document.getElementById('vbFrame');
