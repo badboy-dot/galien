@@ -38,19 +38,20 @@
 .stg-stat span{font-size:.78rem;color:var(--muted);margin-top:6px;display:block}
 @media(max-width:900px){.stg-grid{grid-template-columns:1fr 1fr}.stg-stats{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.stg-grid{grid-template-columns:1fr}}
-/* terrain & pratique */
-.tp-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.tp-media{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-.tp-media img{width:100%;height:440px;object-fit:cover;display:block;transition:transform .6s}
-.tp-media:hover img{transform:scale(1.05)}
-.tp-badge{position:absolute;bottom:-18px;right:22px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:18px;padding:14px 22px;box-shadow:0 14px 36px rgba(233,30,140,.3);text-align:center}
-.tp-badge b{display:block;font-size:1.7rem;font-weight:800;line-height:1}
-.tp-badge span{font-size:.72rem;opacity:.9}
-.tp-list{list-style:none;margin:0 0 26px;display:flex;flex-direction:column;gap:14px}
-.tp-list li{position:relative;padding-left:32px;color:var(--muted);font-size:.9rem;line-height:1.6}
-.tp-list li b{color:var(--ink)}
-.tp-list li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-size:.62rem;display:flex;align-items:center;justify-content:center}
-@media(max-width:860px){.tp-split{grid-template-columns:1fr;gap:40px}.tp-media img{height:320px}}
+/* terrain & pratique teaser */
+.sp-teaser{background:var(--light);padding:90px 0}
+.sp-teaser-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.spt-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px}
+.spt-s{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:18px 14px;text-align:center}
+.spt-s b{display:block;font-size:1.8rem;font-weight:900;color:var(--purple)}
+.spt-s span{font-size:.74rem;color:var(--muted);font-weight:600}
+.spt-photo{position:relative}
+.spt-photo img{width:100%;height:420px;object-fit:cover;border-radius:24px;box-shadow:0 24px 60px rgba(59,42,143,.18)}
+.spt-intl{position:absolute;bottom:-20px;left:20px;right:20px;background:#fff;border-radius:18px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.si-title{font-size:.75rem;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.si-flags{display:flex;flex-wrap:wrap;gap:8px}
+.si-flags span{background:var(--light);border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:.78rem;font-weight:600;color:var(--ink)}
+@media(max-width:860px){.sp-teaser-grid{grid-template-columns:1fr;gap:40px}.spt-intl{position:static;margin-top:16px}}
 </style>
 <style>
 #google_translate_element{display:flex;align-items:center}
@@ -116,26 +117,35 @@ body{top:0!important}
   </div>
 </section>
 
-<!-- ═══ TERRAIN & PRATIQUE ═══ -->
-<section class="section">
+<!-- ═══ TERRAIN & PRATIQUE (teaser) ═══ -->
+<section class="section sp-teaser">
   <div class="container">
-    <div class="tp-split">
-      <div class="tp-media" data-reveal="left">
-        <img src="images/dsc07330.jpg" alt="Travaux pratiques à l'Institut Galien"/>
-        <div class="tp-badge"><b>80%</b><span>de pratique</span></div>
+    <div class="sp-teaser-grid">
+      <div class="spt-left" data-reveal="left">
+        <span class="eyebrow">Terrain & pratique</span>
+        <h2 class="h-title">Des stages uniques pour transformer vos <span class="accent">connaissances</span></h2>
+        <p style="color:var(--muted);line-height:1.8;margin:18px 0 28px">Dès la première année, vous intégrez de vrais hôpitaux et cliniques partenaires. 100% de nos étudiants sont placés. Tuteur dédié, portfolio de compétences, embauche directe post-stage — votre carrière commence avant même le diplôme.</p>
+        <div class="spt-stats">
+          <div class="spt-s"><b>500+</b><span>Heures de stage</span></div>
+          <div class="spt-s"><b>30+</b><span>Structures partenaires</span></div>
+          <div class="spt-s"><b>100%</b><span>Étudiants placés</span></div>
+        </div>
+        <a href="partenaires.html" class="btn btn-purple" style="margin-top:28px">Voir tous nos partenaires →</a>
       </div>
-      <div class="tp-body" data-reveal="right">
-        <span class="eyebrow">Apprendre en faisant</span>
-        <h2 class="h-title">Terrain & <span class="accent">pratique</span></h2>
-        <p class="lead" style="margin:16px 0 22px">À l'Institut Galien, la théorie prend tout son sens dans la pratique. Nos étudiants passent la majorité de leur temps à manipuler, s'exercer et reproduire les gestes du métier — jusqu'à les maîtriser parfaitement.</p>
-        <ul class="tp-list">
-          <li><b>Laboratoires de simulation</b> — mannequins haute-fidélité pour s'entraîner en toute sécurité avant le terrain.</li>
-          <li><b>Travaux pratiques encadrés</b> — gestes techniques répétés sous l'œil de praticiens en exercice.</li>
-          <li><b>Matériel médical professionnel</b> — les mêmes équipements que ceux des hôpitaux et cliniques.</li>
-          <li><b>Mises en situation réelles</b> — cas cliniques et scénarios concrets pour développer les bons réflexes.</li>
-          <li><b>Évaluation par compétences</b> — examens pratiques réguliers pour valider chaque savoir-faire.</li>
-        </ul>
-        <a href="formations.html" class="btn btn-pink">Découvrir nos formations →</a>
+      <div class="spt-right" data-reveal="right">
+        <div class="spt-photo">
+          <img src="images/dsc07330.jpg" alt="Stage clinique Institut Galien"/>
+          <div class="spt-intl">
+            <div class="si-title"><i class="fa-solid fa-earth-africa"></i> Partenaires internationaux</div>
+            <div class="si-flags">
+              <span title="Canada">🇨🇦 Santé Vitalité</span>
+              <span title="Québec">🇨🇦 Collège d'Alma</span>
+              <span title="Allemagne">🇩🇪 Académie Allemande</span>
+              <span title="France">🇫🇷 Nocaire</span>
+              <span title="UK">🇬🇧 Oxford</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
