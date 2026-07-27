@@ -24,6 +24,20 @@
 #lb img{max-width:92%;max-height:90%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 #lb .x{position:absolute;top:22px;right:30px;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;background:none;border:none}
 @media(max-width:760px){.gal{grid-template-columns:repeat(2,1fr)}.gi.big{grid-column:span 2;grid-row:span 1}}
+/* stages */
+.stg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stg-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:30px 26px;transition:.3s}
+.stg-card:hover{border-color:rgba(233,30,140,.3);box-shadow:0 12px 36px rgba(233,30,140,.09);transform:translateY(-5px)}
+.stg-ico{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;margin-bottom:16px}
+.stg-card h4{color:var(--purple);font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.stg-card p{color:var(--muted);font-size:.87rem;line-height:1.75}
+.stg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+.stg-stat{text-align:center;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:26px 16px}
+.stg-stat b{display:block;font-size:2.2rem;font-weight:800;color:var(--purple);line-height:1}
+.stg-stat b em{font-style:normal;color:var(--pink);font-size:1.1rem}
+.stg-stat span{font-size:.78rem;color:var(--muted);margin-top:6px;display:block}
+@media(max-width:900px){.stg-grid{grid-template-columns:1fr 1fr}.stg-stats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.stg-grid{grid-template-columns:1fr}}
 </style>
 <style>
 #google_translate_element{display:flex;align-items:center}
@@ -85,6 +99,58 @@ body{top:0!important}
       <div class="gi" data-reveal="zoom"><img src="images/dsc07195.jpg" alt="Matériel médical"/><div class="ov"><span>Matériel médical</span></div></div>
       <div class="gi" data-reveal="zoom"><img src="images/dsc07248.jpg" alt="Pratique clinique"/><div class="ov"><span>Pratique clinique</span></div></div>
       <div class="gi" data-reveal="zoom"><img src="images/dsc07230.jpg" alt="Formation continue"/><div class="ov"><span>Formation continue</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAGES ═══ -->
+<section class="section alt" id="stages">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px" data-reveal>
+      <span class="eyebrow">Expérience terrain</span>
+      <h2 class="h-title">Les <span class="accent">stages</span> au cœur de la vie étudiante</h2>
+      <p class="lead">À l'Institut Galien, on n'apprend pas seulement dans les salles de cours. Dès la première année, nos étudiants intègrent de vrais hôpitaux, cliniques et officines partenaires. Le stage n'est pas un complément — c'est le cœur même de la formation.</p>
+    </div>
+    <div class="stg-grid">
+      <div class="stg-card" data-reveal>
+        <div class="stg-ico"><i class="fa-solid fa-calendar-days"></i></div>
+        <h4>Stage dès l'année 1</h4>
+        <p>Pas d'attente : vous commencez à pratiquer en milieu réel dès votre première année. Une immersion précoce qui consolide la théorie et construit la confiance professionnelle.</p>
+      </div>
+      <div class="stg-card" data-reveal>
+        <div class="stg-ico"><i class="fa-solid fa-hospital"></i></div>
+        <h4>En hôpitaux & cliniques réels</h4>
+        <p>Grâce à nos conventions avec les structures de santé d'Agadir et de la région Souss-Massa, vous êtes accueilli dans de véritables services de soins, aux côtés d'équipes médicales expérimentées.</p>
+      </div>
+      <div class="stg-card" data-reveal>
+        <div class="stg-ico"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <h4>Un tuteur qui vous suit</h4>
+        <p>Chaque étudiant est accompagné par un tuteur pédagogique qui fait le lien entre l'Institut et la structure d'accueil, avec des bilans réguliers pour renforcer vos progrès.</p>
+      </div>
+      <div class="stg-card" data-reveal>
+        <div class="stg-ico"><i class="fa-solid fa-clipboard-list"></i></div>
+        <h4>Portfolio de compétences</h4>
+        <p>À chaque stage, un rapport détaillé co-signé avec votre maître de stage enrichit votre portfolio professionnel — un atout concret lors de votre recherche d'emploi.</p>
+      </div>
+      <div class="stg-card" data-reveal>
+        <div class="stg-ico"><i class="fa-solid fa-earth-africa"></i></div>
+        <h4>Ouverture à l'international</h4>
+        <p>Les étudiants méritants peuvent effectuer une partie de leur stage à l'étranger — Canada, France, Allemagne, UK — via nos accords de partenariat exclusifs.</p>
+      </div>
+      <div class="stg-card" data-reveal>
+        <div class="stg-ico"><i class="fa-solid fa-circle-check"></i></div>
+        <h4>100% des étudiants placés</h4>
+        <p>Aucun étudiant ne reste sans terrain de stage. Notre département des relations institutionnelles gère personnellement le placement de chaque apprenant selon sa filière.</p>
+      </div>
+    </div>
+    <div class="stg-stats" data-reveal>
+      <div class="stg-stat"><b>1<em>re</em></b><span>année : stage immédiat</span></div>
+      <div class="stg-stat"><b>100<em>%</em></b><span>d'étudiants en stage</span></div>
+      <div class="stg-stat"><b>95<em>%</em></b><span>de taux d'insertion</span></div>
+      <div class="stg-stat"><b>5<em>+</em></b><span>pays partenaires</span></div>
+    </div>
+    <div class="center" style="margin-top:44px" data-reveal>
+      <a href="contact.html" class="btn btn-pink" data-inscrire>Rejoindre l'Institut Galien</a>
     </div>
   </div>
 </section>
