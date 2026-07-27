@@ -1,6 +1,6 @@
 /* Institut Galien — comportements partagés */
 function setLang(lang){
-  var base='https://badboy-dot-github-io.translate.goog/galien/';
+  var base='https://badboy--dot-github-io.translate.goog/galien/';
   var path=window.location.pathname.replace(/^\/galien\/?/,'');
   if(lang==='fr'){
     window.location='https://badboy-dot.github.io/galien/'+(path||'');
