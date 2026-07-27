@@ -38,6 +38,19 @@
 .stg-stat span{font-size:.78rem;color:var(--muted);margin-top:6px;display:block}
 @media(max-width:900px){.stg-grid{grid-template-columns:1fr 1fr}.stg-stats{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.stg-grid{grid-template-columns:1fr}}
+/* terrain & pratique */
+.tp-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.tp-media{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.tp-media img{width:100%;height:440px;object-fit:cover;display:block;transition:transform .6s}
+.tp-media:hover img{transform:scale(1.05)}
+.tp-badge{position:absolute;bottom:-18px;right:22px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:18px;padding:14px 22px;box-shadow:0 14px 36px rgba(233,30,140,.3);text-align:center}
+.tp-badge b{display:block;font-size:1.7rem;font-weight:800;line-height:1}
+.tp-badge span{font-size:.72rem;opacity:.9}
+.tp-list{list-style:none;margin:0 0 26px;display:flex;flex-direction:column;gap:14px}
+.tp-list li{position:relative;padding-left:32px;color:var(--muted);font-size:.9rem;line-height:1.6}
+.tp-list li b{color:var(--ink)}
+.tp-list li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-size:.62rem;display:flex;align-items:center;justify-content:center}
+@media(max-width:860px){.tp-split{grid-template-columns:1fr;gap:40px}.tp-media img{height:320px}}
 </style>
 <style>
 #google_translate_element{display:flex;align-items:center}
@@ -99,6 +112,31 @@ body{top:0!important}
       <div class="gi" data-reveal="zoom"><img src="images/dsc07195.jpg" alt="Matériel médical"/><div class="ov"><span>Matériel médical</span></div></div>
       <div class="gi" data-reveal="zoom"><img src="images/dsc07248.jpg" alt="Pratique clinique"/><div class="ov"><span>Pratique clinique</span></div></div>
       <div class="gi" data-reveal="zoom"><img src="images/dsc07230.jpg" alt="Formation continue"/><div class="ov"><span>Formation continue</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TERRAIN & PRATIQUE ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="tp-split">
+      <div class="tp-media" data-reveal="left">
+        <img src="images/dsc07330.jpg" alt="Travaux pratiques à l'Institut Galien"/>
+        <div class="tp-badge"><b>80%</b><span>de pratique</span></div>
+      </div>
+      <div class="tp-body" data-reveal="right">
+        <span class="eyebrow">Apprendre en faisant</span>
+        <h2 class="h-title">Terrain & <span class="accent">pratique</span></h2>
+        <p class="lead" style="margin:16px 0 22px">À l'Institut Galien, la théorie prend tout son sens dans la pratique. Nos étudiants passent la majorité de leur temps à manipuler, s'exercer et reproduire les gestes du métier — jusqu'à les maîtriser parfaitement.</p>
+        <ul class="tp-list">
+          <li><b>Laboratoires de simulation</b> — mannequins haute-fidélité pour s'entraîner en toute sécurité avant le terrain.</li>
+          <li><b>Travaux pratiques encadrés</b> — gestes techniques répétés sous l'œil de praticiens en exercice.</li>
+          <li><b>Matériel médical professionnel</b> — les mêmes équipements que ceux des hôpitaux et cliniques.</li>
+          <li><b>Mises en situation réelles</b> — cas cliniques et scénarios concrets pour développer les bons réflexes.</li>
+          <li><b>Évaluation par compétences</b> — examens pratiques réguliers pour valider chaque savoir-faire.</li>
+        </ul>
+        <a href="formations.html" class="btn btn-pink">Découvrir nos formations →</a>
+      </div>
     </div>
   </div>
 </section>
