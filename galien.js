@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </select>
             <div id="gmInfo" class="gm-info"></div>
           </div>
+          <div id="gmDocs" class="gm-docs"></div>
           <button type="submit" class="gm-submit">Envoyer ma demande</button>
         </form>
       </div>
@@ -145,9 +146,43 @@ document.addEventListener('DOMContentLoaded', () => {
     {name:'Vente en pharmacie',dur:'13 mois',levels:['bac-sci','bac','niveau-bac']},
     {name:'Formation continue (Licence/Master)',dur:'1–2 ans',levels:['pro']}
   ];
+  // Documents à téléverser selon le niveau (BAC/diplôme + CIN)
+  const GM_DOCS = {
+    'bac-sci': ['Diplôme du Baccalauréat scientifique', 'fa-graduation-cap'],
+    'bac': ['Diplôme du Baccalauréat', 'fa-graduation-cap'],
+    'niveau-bac': ['Relevé de notes du BAC', 'fa-file'],
+    'pro': ['Diplôme professionnel', 'fa-graduation-cap']
+  };
   const gmN = document.getElementById('gmNiveau');
   const gmF = document.getElementById('gmFormation');
   const gmI = document.getElementById('gmInfo');
+  const gmD = document.getElementById('gmDocs');
+  function gmUpBox(label, icon) {
+    return `<label class="gm-up"><input type="file" accept="image/*,.pdf" required>
+      <span class="gm-uic"><i class="fa-solid ${icon}"></i></span>
+      <span><small>${label}</small><em>Cliquez pour téléverser — JPG, PNG ou PDF</em></span></label>`;
+  }
+  function gmBuildDocs(lvl) {
+    if (!gmD) return;
+    const doc = GM_DOCS[lvl];
+    if (!doc) { gmD.innerHTML = ''; return; }
+    gmD.innerHTML =
+      `<div class="gm-doc-title"><i class="fa-solid fa-paperclip"></i> Documents à joindre</div>` +
+      gmUpBox(doc[0], doc[1]) +
+      gmUpBox("Carte d'identité nationale (CIN)", 'fa-id-card');
+    gmD.querySelectorAll('.gm-up input').forEach(inp => {
+      inp.addEventListener('change', function () {
+        const box = this.closest('.gm-up');
+        if (this.files.length) {
+          box.classList.add('filled');
+          const n = this.files[0].name;
+          box.querySelector('small').textContent = '✓ ' + (n.length > 30 ? n.slice(0, 27) + '…' : n);
+          box.querySelector('em').textContent = 'Fichier ajouté';
+          box.querySelector('.gm-uic').innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        }
+      });
+    });
+  }
   if (gmN && gmF) gmN.addEventListener('change', () => {
     const lvl = gmN.value;
     const eligible = GM_FORMATIONS.filter(f => f.levels.includes(lvl));
@@ -170,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gmI.className = 'gm-info';
       gmI.textContent = '';
     }
+    gmBuildDocs(lvl);
   });
 
   const vid = document.createElement('div');
