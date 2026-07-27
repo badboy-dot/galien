@@ -43,12 +43,21 @@ body{top:0!important}
 <header id="site-header"><div class="container"><nav class="nav">
   <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
   <ul class="nav-menu" id="nav-menu">
-    <li><a href="institut.html">À propos</a></li>
-    <li><a href="formations.html">Formation initiale</a></li>
-    <li><a href="formation-continue.html">Formation continue</a></li>
-    <li><a href="temoignages.html">Témoignages</a></li>
+    <li><a href="index.html">Accueil</a></li>
+    <li class="has-drop"><a href="institut.html">À propos <i class="fa-solid fa-chevron-down nav-caret"></i></a>
+      <ul class="drop">
+        <li><a href="institut.html">L'Institut</a></li>
+        <li><a href="partenaires.html">Nos partenaires</a></li>
+      </ul>
+    </li>
+    <li class="has-drop"><a href="formations.html">Formations <i class="fa-solid fa-chevron-down nav-caret"></i></a>
+      <ul class="drop">
+        <li><a href="formations.html">Formation initiale</a></li>
+        <li><a href="formation-continue.html">Formation continue</a></li>
+      </ul>
+    </li>
     <li><a href="galerie.html" class="active">Vie scolaire</a></li>
-    <li><a href="partenaires.html">Nos partenaires</a></li>
+    <li><a href="temoignages.html">Témoignages</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="contact.html" class="btn btn-pink nav-cta" data-inscrire>S'inscrire</a></li>
   </ul>

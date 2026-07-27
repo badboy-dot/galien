@@ -57,12 +57,21 @@ a{text-decoration:none;color:inherit}
 #site-header.scrolled{box-shadow:0 6px 30px rgba(59,42,143,.10)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
 .nav-logo img{height:62px}
-.nav-menu{display:flex;align-items:center;gap:19px;list-style:none}
-.nav-menu>li>a{font-size:.86rem;font-weight:600;color:var(--ink);position:relative;padding:8px 0;transition:color .25s;white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-menu>li>a{font-size:.9rem;font-weight:600;color:var(--ink);position:relative;padding:8px 0;transition:color .25s;white-space:nowrap}
 .nav-menu>li>a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--pink);transition:width .3s}
 .nav-menu>li>a:hover{color:var(--pink)}
 .nav-menu>li>a:hover::after,.nav-menu>li>a.active::after{width:100%}
 .nav-menu>li>a.active{color:var(--pink)}
+/* ── DROPDOWN MENUS ── */
+.nav-caret{font-size:.62em;margin-left:5px;transition:transform .25s;position:relative;top:-1px}
+.nav-menu .has-drop{position:relative}
+.nav-menu .has-drop:hover .nav-caret{transform:rotate(180deg)}
+.nav-menu .drop{position:absolute;top:100%;left:-14px;min-width:216px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 22px 44px rgba(59,42,143,.14);padding:8px;list-style:none;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .22s,transform .22s,visibility .22s;z-index:120}
+.nav-menu .has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(5px)}
+.nav-menu .drop>li>a{display:block;padding:11px 14px;border-radius:9px;font-size:.85rem;font-weight:600;color:var(--ink);white-space:nowrap;transition:.2s}
+.nav-menu .drop>li>a::after{display:none}
+.nav-menu .drop>li>a:hover{background:rgba(233,30,140,.08);color:var(--pink);padding-left:18px}
 .lang-switcher{display:flex;align-items:center;gap:4px;margin-left:10px}
 .ls-btn{background:transparent;border:1.5px solid var(--line);color:var(--ink);font-size:.72rem;font-weight:800;padding:5px 10px;border-radius:20px;cursor:pointer;transition:.2s;font-family:inherit;letter-spacing:.04em}
 .ls-btn:hover,.ls-btn.active{background:var(--purple);border-color:var(--purple);color:#fff}
@@ -252,6 +261,13 @@ body{animation:pageIn .55s ease both}
   .nav-menu.open{display:flex}
   .nav-menu>li>a{padding:12px 4px;border-bottom:1px solid var(--line);font-size:1rem}
   .nav-menu>li:last-child>a{border-bottom:none}
+  /* dropdowns become inline sub-lists on mobile */
+  .nav-menu .nav-caret{display:none}
+  .nav-menu .drop{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;border-radius:0;padding:0 0 6px 14px;min-width:0;background:transparent;gap:0}
+  .nav-menu .has-drop:hover .drop{transform:none}
+  .nav-menu .drop>li>a{padding:10px 4px;font-size:.92rem;color:var(--muted);border-bottom:1px dashed var(--line)}
+  .nav-menu .drop>li:last-child>a{border-bottom:none}
+  .nav-menu .drop>li>a:hover{padding-left:8px;background:transparent}
   .nav-cta{margin:10px 0 0;text-align:center;justify-content:center;animation:none}
   .hamburger{display:flex}
   /* grids stack */
