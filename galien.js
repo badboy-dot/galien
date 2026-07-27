@@ -114,20 +114,63 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="gm-field"><label>Email</label><input type="email" placeholder="votre@email.com" required></div>
             <div class="gm-field"><label>Téléphone</label><input type="tel" placeholder="+212 6XX XXX XXX"></div>
           </div>
-          <div class="gm-field"><label>Formation souhaitée</label>
-            <select required>
-              <option value="" disabled selected>Choisissez une formation</option>
-              <option>Kinésithérapie</option><option>Sage-femme</option>
-              <option>Infirmier polyvalent</option><option>Infirmier anesthésiste</option>
-              <option>Infirmier auxiliaire</option><option>Aide-soignant</option>
-              <option>Vente en pharmacie</option><option>Formation continue</option>
+          <div class="gm-field"><label>Niveau d'études</label>
+            <select id="gmNiveau" required>
+              <option value="" disabled selected>Sélectionnez votre niveau</option>
+              <option value="bac-sci">Baccalauréat scientifique</option>
+              <option value="bac">Baccalauréat (toutes séries)</option>
+              <option value="niveau-bac">Niveau BAC</option>
+              <option value="pro">Professionnel en exercice</option>
             </select>
+          </div>
+          <div class="gm-field"><label>Formation souhaitée</label>
+            <select id="gmFormation" required disabled>
+              <option value="" disabled selected>Sélectionnez d'abord votre niveau</option>
+            </select>
+            <div id="gmInfo" class="gm-info"></div>
           </div>
           <button type="submit" class="gm-submit">Envoyer ma demande</button>
         </form>
       </div>
     </div>`;
   document.body.appendChild(insc);
+
+  // ── Inscription: filtrer les filières selon le niveau requis (fiche officielle) ──
+  const GM_FORMATIONS = [
+    {name:'Kinésithérapie',dur:'3 ans',levels:['bac-sci']},
+    {name:'Sage-femme',dur:'3 ans',levels:['bac-sci','bac']},
+    {name:'Infirmier polyvalent',dur:'3 ans',levels:['bac-sci','bac']},
+    {name:'Infirmier auxiliaire',dur:'2 ans',levels:['bac-sci','bac','niveau-bac']},
+    {name:'Aide-soignant',dur:'13 mois',levels:['bac-sci','bac','niveau-bac']},
+    {name:'Vente en pharmacie',dur:'13 mois',levels:['bac-sci','bac','niveau-bac']},
+    {name:'Formation continue (Licence/Master)',dur:'1–2 ans',levels:['pro']}
+  ];
+  const gmN = document.getElementById('gmNiveau');
+  const gmF = document.getElementById('gmFormation');
+  const gmI = document.getElementById('gmInfo');
+  if (gmN && gmF) gmN.addEventListener('change', () => {
+    const lvl = gmN.value;
+    const eligible = GM_FORMATIONS.filter(f => f.levels.includes(lvl));
+    const excluded = GM_FORMATIONS.filter(f => !f.levels.includes(lvl) && f.name.indexOf('Formation continue') === -1);
+    gmF.innerHTML = '<option value="" disabled selected>Choisissez une formation</option>';
+    eligible.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.name;
+      o.textContent = f.name.replace(' (Licence/Master)', '') + ' — ' + f.dur;
+      gmF.appendChild(o);
+    });
+    gmF.disabled = eligible.length === 0;
+    if (lvl === 'bac-sci') {
+      gmI.className = 'gm-info';
+      gmI.textContent = 'Toutes les filières vous sont accessibles.';
+    } else if (excluded.length) {
+      gmI.className = 'gm-info warn';
+      gmI.textContent = 'Non accessible avec ce niveau : ' + excluded.map(f => f.name).join(', ') + '.';
+    } else {
+      gmI.className = 'gm-info';
+      gmI.textContent = '';
+    }
+  });
 
   const vid = document.createElement('div');
   vid.className = 'gmodal gmodal-video';

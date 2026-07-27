@@ -36,6 +36,9 @@
 .submit:hover{background:var(--pink-d);transform:translateY(-2px);box-shadow:0 10px 26px rgba(233,30,140,.35)}
 .map-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);height:360px;margin-top:50px}
 .map-wrap iframe{width:100%;height:100%;border:0}
+.form-info{font-size:.78rem;line-height:1.5;color:var(--muted);margin-top:8px;padding-left:2px}
+.form-info b{color:var(--purple)}
+.form-info.warn{color:#c0392b}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:36px}}
 @media(max-width:760px){.frow{grid-template-columns:1fr}.form-box{padding:24px}.map-wrap{height:280px;margin-top:36px}}
 </style>
@@ -109,22 +112,19 @@ body{top:0!important}
               <div class="fg"><label>Téléphone</label><input type="tel" placeholder="+212 6XX XXX XXX"/></div>
             </div>
             <div class="fg"><label>Niveau d'études</label>
-              <select id="niveau" onchange="updateDocs()" required>
+              <select id="niveau" onchange="onNiveauChange()" required>
                 <option value="" disabled selected>Sélectionnez votre niveau</option>
-                <option value="bac">Baccalauréat</option>
+                <option value="bac-sci">Baccalauréat scientifique</option>
+                <option value="bac">Baccalauréat (toutes séries)</option>
                 <option value="niveau-bac">Niveau BAC</option>
-                <option value="college">3ème année collège</option>
                 <option value="pro">Professionnel en exercice</option>
               </select>
             </div>
             <div class="fg"><label>Formation souhaitée</label>
-              <select required>
-                <option value="" disabled selected>Choisissez une formation</option>
-                <option>Kinésithérapie</option><option>Sage-femme</option>
-                <option>Infirmier polyvalent</option>
-                <option>Infirmier auxiliaire</option><option>Aide-soignant</option>
-                <option>Vente en pharmacie</option><option>Formation continue (Licence/Master)</option>
+              <select id="formation" required disabled>
+                <option value="" disabled selected>Sélectionnez d'abord votre niveau</option>
               </select>
+              <div id="formInfo" class="form-info"></div>
             </div>
             <div id="docs" class="docs"><i class="fa-solid fa-paperclip"></i> Sélectionnez votre niveau pour voir les documents à joindre.</div>
             <div class="fg"><label>Message (optionnel)</label><textarea placeholder="Votre message…"></textarea></div>
@@ -158,10 +158,46 @@ function googleTranslateElementInit(){
 </script>
 <script src="galien.js"></script>
 <script>
+// Filières et niveau requis (d'après la fiche officielle)
+const FORMATIONS=[
+  {name:'Kinésithérapie',dur:'3 ans',levels:['bac-sci'],req:'Baccalauréat scientifique'},
+  {name:'Sage-femme',dur:'3 ans',levels:['bac-sci','bac'],req:'Baccalauréat (toutes séries)'},
+  {name:'Infirmier polyvalent',dur:'3 ans',levels:['bac-sci','bac'],req:'Baccalauréat (toutes séries)'},
+  {name:'Infirmier auxiliaire',dur:'2 ans',levels:['bac-sci','bac','niveau-bac'],req:'Niveau BAC'},
+  {name:'Aide-soignant',dur:'13 mois',levels:['bac-sci','bac','niveau-bac'],req:'Niveau BAC'},
+  {name:'Vente en pharmacie',dur:'13 mois',levels:['bac-sci','bac','niveau-bac'],req:'Niveau BAC'},
+  {name:'Formation continue (Licence/Master)',dur:'1–2 ans',levels:['pro'],req:'Professionnel en exercice'}
+];
+function onNiveauChange(){ updateDocs(); updateFormations(); }
+function updateFormations(){
+  const lvl=document.getElementById('niveau').value;
+  const sel=document.getElementById('formation');
+  const info=document.getElementById('formInfo');
+  const eligible=FORMATIONS.filter(f=>f.levels.includes(lvl));
+  const excluded=FORMATIONS.filter(f=>!f.levels.includes(lvl) && f.name.indexOf('Formation continue')===-1);
+  sel.innerHTML='<option value="" disabled selected>Choisissez une formation</option>';
+  eligible.forEach(f=>{
+    const o=document.createElement('option');
+    o.value=f.name;
+    o.textContent=f.name.replace(' (Licence/Master)','')+' — '+f.dur;
+    sel.appendChild(o);
+  });
+  sel.disabled=eligible.length===0;
+  if(lvl==='bac-sci'){
+    info.className='form-info';
+    info.innerHTML='<b>Toutes les filières</b> vous sont accessibles avec un Baccalauréat scientifique.';
+  } else if(excluded.length){
+    info.className='form-info warn';
+    info.innerHTML='<i class="fa-solid fa-circle-info"></i> Non accessible avec ce niveau : <b>'+excluded.map(f=>f.name).join(', ')+'</b>. Ces filières exigent un Baccalauréat'+(excluded.some(f=>f.name==='Kinésithérapie')?' (scientifique pour la Kinésithérapie)':'')+'.';
+  } else {
+    info.className='form-info';
+    info.innerHTML='';
+  }
+}
 const docsByLevel={
+  'bac-sci':[['Diplôme du Baccalauréat scientifique','<i class="fa-solid fa-graduation-cap"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
   'bac':[['Diplôme du Baccalauréat','<i class="fa-solid fa-graduation-cap"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
   'niveau-bac':[['Relevé de notes du BAC','<i class="fa-solid fa-file"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
-  'college':[['Certificat de scolarité','<i class="fa-solid fa-scroll"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']],
   'pro':[['Diplôme professionnel','<i class="fa-solid fa-graduation-cap"></i>'],['Carte d\'identité nationale (CIN)','<i class="fa-solid fa-id-card"></i>']]
 };
 function updateDocs(){

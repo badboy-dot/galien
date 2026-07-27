@@ -166,6 +166,9 @@ a{text-decoration:none;color:inherit}
 .gm-field label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:5px}
 .gm-field input,.gm-field select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-family:inherit;font-size:.9rem;outline:none;transition:border .25s}
 .gm-field input:focus,.gm-field select:focus{border-color:var(--pink)}
+.gm-field select:disabled{background:var(--light);color:var(--muted);cursor:not-allowed}
+.gm-info{font-size:.76rem;line-height:1.5;color:var(--muted);margin-top:6px}
+.gm-info.warn{color:#c0392b}
 .gm-submit{width:100%;padding:14px;border:none;border-radius:11px;background:var(--pink);color:#fff;font-weight:700;font-size:.98rem;cursor:pointer;transition:.3s}
 .gm-submit:hover{background:var(--pink-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(233,30,140,.35)}
 /* video modal */
