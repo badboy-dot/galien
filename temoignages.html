@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Témoignages — Institut Galien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="galien-style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tm-card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:30px 28px;position:relative;transition:.3s;display:flex;flex-direction:column}
+.tm-card:hover{border-color:rgba(233,30,140,.3);box-shadow:0 14px 40px rgba(233,30,140,.1);transform:translateY(-5px)}
+.tm-quote{position:absolute;top:20px;right:26px;font-size:2.6rem;color:rgba(233,30,140,.14);line-height:1}
+.tm-stars{color:#ffb400;font-size:.9rem;margin-bottom:14px}
+.tm-text{color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:22px;flex:1}
+.tm-person{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);padding-top:18px}
+.tm-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;flex-shrink:0}
+.tm-person b{display:block;color:var(--purple);font-size:.95rem}
+.tm-person span{color:var(--muted);font-size:.8rem}
+.tm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:10px}
+.tm-stat{text-align:center;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:26px 16px}
+.tm-stat b{display:block;font-size:2.2rem;font-weight:800;color:var(--purple);line-height:1}
+.tm-stat span{font-size:.78rem;color:var(--muted);margin-top:6px;display:block}
+@media(max-width:900px){.tm-grid{grid-template-columns:1fr 1fr}.tm-stats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.tm-grid{grid-template-columns:1fr}}
+</style>
+<style>
+#google_translate_element{display:flex;align-items:center}
+#google_translate_element .goog-te-gadget{color:transparent;font-size:0}
+#google_translate_element .goog-te-gadget select{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:20px;cursor:pointer;outline:none;font-family:inherit}
+#google_translate_element .goog-te-gadget select:hover{background:rgba(255,255,255,.25)}
+#google_translate_element .goog-te-gadget select option{color:#1a1233;background:#fff}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+</style></head>
+<body>
+
+<div class="topbar"><div class="container">
+  <div class="tb-info"><span><i class="fa-solid fa-phone"></i> <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm"><i class="fa-solid fa-location-dot"></i> Avenue El Mouqwama, Agadir 80000</span></div>
+        <div id="google_translate_element"></div><div class="tb-social"><a href="#">Facebook</a><a href="https://www.instagram.com/institutgalien.officiel" target="_blank">Instagram</a><a href="https://www.youtube.com/@InstitueGalien" target="_blank">YouTube</a></div>
+</div></div>
+<header id="site-header"><div class="container"><nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="institut.html">À propos</a></li>
+    <li><a href="formations.html">Formation initiale</a></li>
+    <li><a href="formation-continue.html">Formation continue</a></li>
+    <li><a href="temoignages.html" class="active">Témoignages</a></li>
+    <li><a href="galerie.html">Vie scolaire</a></li>
+    <li><a href="partenaires.html">Nos partenaires</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-pink nav-cta" data-inscrire>S'inscrire</a></li>
+  </ul>
+  <div class="lang-switcher"><button onclick="setLang('fr')" class="ls-btn" id="ls-fr">FR</button><button onclick="setLang('en')" class="ls-btn" id="ls-en">EN</button><button onclick="setLang('ar')" class="ls-btn" id="ls-ar">ع</button></div><div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav></div></header>
+
+<section class="page-hero" style="background-image:url('images/dsc07179.jpg')">
+  <div class="container"><h1>Témoignages</h1><div class="crumb"><a href="index.html">Accueil</a> › Témoignages</div></div>
+</section>
+
+<!-- Intro -->
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px" data-reveal>
+      <span class="eyebrow">Ils nous font confiance</span>
+      <h2 class="h-title">La parole à nos <span class="accent">diplômés</span></h2>
+      <p class="lead">Derrière chaque diplôme, une histoire de réussite. Découvrez les parcours de celles et ceux qui ont construit leur carrière à l'Institut Galien.</p>
+    </div>
+
+    <div class="tm-grid">
+      <div class="tm-card" data-reveal>
+        <span class="tm-quote"><i class="fa-solid fa-quote-right"></i></span>
+        <div class="tm-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tm-text">Grâce à l'Institut Galien, j'ai décroché un poste en soins infirmiers avant même la fin de mon cursus. Les stages en milieu hospitalier réel m'ont donné une confiance et une expérience irremplaçables.</p>
+        <div class="tm-person"><div class="tm-avatar">SA</div><div><b>Salma A.</b><span>Infirmière polyvalente · Promo 2022</span></div></div>
+      </div>
+      <div class="tm-card" data-reveal>
+        <span class="tm-quote"><i class="fa-solid fa-quote-right"></i></span>
+        <div class="tm-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tm-text">Les formateurs sont tous des praticiens en exercice : ils enseignent la réalité du terrain, pas seulement la théorie. Aujourd'hui je travaille en cabinet de kinésithérapie et je recommande l'Institut les yeux fermés.</p>
+        <div class="tm-person"><div class="tm-avatar">YM</div><div><b>Youssef M.</b><span>Kinésithérapeute · Promo 2021</span></div></div>
+      </div>
+      <div class="tm-card" data-reveal>
+        <span class="tm-quote"><i class="fa-solid fa-quote-right"></i></span>
+        <div class="tm-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tm-text">Un accompagnement humain du premier au dernier jour. Le suivi personnalisé et l'aide à l'insertion m'ont permis de trouver un emploi en maternité en moins de six mois après mon diplôme.</p>
+        <div class="tm-person"><div class="tm-avatar">FZ</div><div><b>Fatima Zahra B.</b><span>Sage-femme · Promo 2023</span></div></div>
+      </div>
+      <div class="tm-card" data-reveal>
+        <span class="tm-quote"><i class="fa-solid fa-quote-right"></i></span>
+        <div class="tm-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tm-text">J'ai repris mes études en formation continue tout en travaillant. Les horaires aménagés et le partenariat international m'ont ouvert des portes que je n'imaginais pas. Un vrai tremplin de carrière.</p>
+        <div class="tm-person"><div class="tm-avatar">HK</div><div><b>Hamza K.</b><span>Cadre de santé · Formation continue</span></div></div>
+      </div>
+      <div class="tm-card" data-reveal>
+        <span class="tm-quote"><i class="fa-solid fa-quote-right"></i></span>
+        <div class="tm-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tm-text">Les équipements de simulation sont impressionnants. On pratique sur des mannequins haute-fidélité avant d'aller sur le terrain, ce qui change tout. Je me suis sentie prête dès mon premier stage.</p>
+        <div class="tm-person"><div class="tm-avatar">IM</div><div><b>Imane M.</b><span>Infirmière auxiliaire · Promo 2022</span></div></div>
+      </div>
+      <div class="tm-card" data-reveal>
+        <span class="tm-quote"><i class="fa-solid fa-quote-right"></i></span>
+        <div class="tm-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tm-text">Venant d'un niveau collège, j'ai pu me former au métier d'aide-soignant et être embauché directement par ma structure de stage. L'Institut Galien a changé ma vie professionnelle.</p>
+        <div class="tm-person"><div class="tm-avatar">AB</div><div><b>Anas B.</b><span>Aide-soignant · Promo 2023</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section alt">
+  <div class="container">
+    <div class="center" style="margin-bottom:40px" data-reveal>
+      <span class="eyebrow">Des résultats qui parlent</span>
+      <h2 class="h-title">La satisfaction de nos <span class="accent">étudiants</span></h2>
+    </div>
+    <div class="tm-stats">
+      <div class="tm-stat" data-reveal><b><span data-counter="2500">0</span>+</b><span>Diplômés formés</span></div>
+      <div class="tm-stat" data-reveal><b><span data-counter="95">0</span>%</b><span>Taux d'insertion</span></div>
+      <div class="tm-stat" data-reveal><b><span data-counter="98">0</span>%</b><span>Recommandent l'Institut</span></div>
+      <div class="tm-stat" data-reveal><b><span data-counter="25">0</span>+</b><span>Ans d'expertise</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container"><div style="background:linear-gradient(120deg,var(--dark),var(--purple));color:#fff;border-radius:26px;padding:54px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap" data-reveal="zoom">
+    <div><h2 style="font-size:1.9rem;font-weight:800">Écrivez votre propre histoire</h2><p style="color:rgba(255,255,255,.8);margin-top:6px">Rejoignez les 2500+ professionnels de santé formés à l'Institut Galien.</p></div>
+    <a href="contact.html" class="btn btn-pink" data-inscrire>S'inscrire maintenant</a>
+  </div></div>
+</section>
+
+<footer id="site-footer">
+  <div class="footer-top container"><div class="footer-grid">
+    <div class="footer-brand"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-galien-blanc.png" alt="Institut Galien"/><p>Le 1er établissement privé accrédité dans le secteur paramédical au Maroc, depuis 2002.</p><div class="f-social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="institut.html">À propos</a></li><li><a href="formations.html">Formation initiale</a></li><li><a href="formation-continue.html">Formation continue</a></li><li><a href="temoignages.html">Témoignages</a></li><li><a href="galerie.html">Vie scolaire</a></li></ul></div>
+    <div class="footer-col"><h4>Formations</h4><ul><li><a href="formations.html">Kinésithérapie</a></li><li><a href="formations.html">Sage-femme</a></li><li><a href="formations.html">Infirmier polyvalent</a></li><li><a href="formations.html">Aide-soignant</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">Avenue El Mouqwama, Agadir</a></li><li><a href="tel:+212528848686">(+212) 528 848 686</a></li><li><a href="https://galien.ma">www.galien.ma</a></li></ul></div>
+  </div></div>
+  <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
+</footer>
+<button id="toTop">↑</button>
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'fr',includedLanguages:'fr,en,ar',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="galien.js"></script>
+</body>
+</html>

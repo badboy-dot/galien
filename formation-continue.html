@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Formation Continue — Institut Galien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="galien-style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+.fc-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.fc-intro img{width:100%;height:420px;object-fit:cover;border-radius:24px;box-shadow:var(--shadow)}
+.fc-intro h2{color:var(--purple);font-size:1.9rem;font-weight:800;margin-bottom:16px}
+.fc-intro p{color:var(--muted);line-height:1.8;margin-bottom:14px}
+.fc-list{list-style:none;margin:18px 0 26px;display:flex;flex-direction:column;gap:10px}
+.fc-list li{display:flex;align-items:flex-start;gap:12px;color:var(--ink);font-size:.92rem}
+.fc-list li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prog-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:30px 26px;transition:.3s}
+.prog-card:hover{border-color:var(--pink);box-shadow:0 12px 36px rgba(233,30,140,.09);transform:translateY(-5px)}
+.prog-ic{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;margin-bottom:16px}
+.prog-card h4{color:var(--purple);font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.prog-card p{color:var(--muted);font-size:.87rem;line-height:1.7;margin-bottom:12px}
+.prog-meta{display:inline-block;background:rgba(59,42,143,.08);color:var(--purple);font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:30px}
+.pub-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pub-card{text-align:center;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:28px 20px;transition:.3s}
+.pub-card:hover{border-color:rgba(233,30,140,.3);box-shadow:var(--shadow);transform:translateY(-4px)}
+.pub-card .pub-ic{font-size:2rem;color:var(--pink);margin-bottom:12px}
+.pub-card h4{color:var(--purple);font-size:.95rem;font-weight:700;margin-bottom:6px}
+.pub-card p{color:var(--muted);font-size:.82rem;line-height:1.6}
+@media(max-width:900px){.fc-intro{grid-template-columns:1fr;gap:36px}.prog-grid{grid-template-columns:1fr 1fr}.pub-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.prog-grid{grid-template-columns:1fr}.pub-grid{grid-template-columns:1fr 1fr}}
+</style>
+<style>
+#google_translate_element{display:flex;align-items:center}
+#google_translate_element .goog-te-gadget{color:transparent;font-size:0}
+#google_translate_element .goog-te-gadget select{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:20px;cursor:pointer;outline:none;font-family:inherit}
+#google_translate_element .goog-te-gadget select:hover{background:rgba(255,255,255,.25)}
+#google_translate_element .goog-te-gadget select option{color:#1a1233;background:#fff}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+</style></head>
+<body>
+
+<div class="topbar"><div class="container">
+  <div class="tb-info"><span><i class="fa-solid fa-phone"></i> <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm"><i class="fa-solid fa-location-dot"></i> Avenue El Mouqwama, Agadir 80000</span></div>
+        <div id="google_translate_element"></div><div class="tb-social"><a href="#">Facebook</a><a href="https://www.instagram.com/institutgalien.officiel" target="_blank">Instagram</a><a href="https://www.youtube.com/@InstitueGalien" target="_blank">YouTube</a></div>
+</div></div>
+<header id="site-header"><div class="container"><nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="institut.html">À propos</a></li>
+    <li><a href="formations.html">Formation initiale</a></li>
+    <li><a href="formation-continue.html" class="active">Formation continue</a></li>
+    <li><a href="temoignages.html">Témoignages</a></li>
+    <li><a href="galerie.html">Vie scolaire</a></li>
+    <li><a href="partenaires.html">Nos partenaires</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-pink nav-cta" data-inscrire>S'inscrire</a></li>
+  </ul>
+  <div class="lang-switcher"><button onclick="setLang('fr')" class="ls-btn" id="ls-fr">FR</button><button onclick="setLang('en')" class="ls-btn" id="ls-en">EN</button><button onclick="setLang('ar')" class="ls-btn" id="ls-ar">ع</button></div><div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav></div></header>
+
+<section class="page-hero" style="background-image:url('images/dsc07230.jpg')">
+  <div class="container"><h1>Formation Continue</h1><div class="crumb"><a href="index.html">Accueil</a> › Formation continue</div></div>
+</section>
+
+<!-- Intro -->
+<section class="section">
+  <div class="container">
+    <div class="fc-intro">
+      <div data-reveal="left">
+        <img src="images/dsc07230.jpg" alt="Formation continue Institut Galien"/>
+      </div>
+      <div data-reveal="right">
+        <span class="eyebrow">Professionnels en exercice</span>
+        <h2 class="h-title">Montez en compétences, <span class="accent">faites évoluer votre carrière</span></h2>
+        <p>Destinée aux professionnels de santé déjà en activité, la formation continue de l'Institut Galien vous permet de vous spécialiser, d'actualiser vos savoirs et d'accéder à des postes d'encadrement — sans interrompre votre activité professionnelle.</p>
+        <ul class="fc-list">
+          <li>Horaires aménagés (soir & week-end)</li>
+          <li>Diplômes de Licence & Master reconnus</li>
+          <li>Formateurs praticiens experts de leur domaine</li>
+          <li>Passerelles vers nos partenaires internationaux</li>
+        </ul>
+        <a href="contact.html" class="btn btn-pink" data-inscrire>Demander un programme</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Programmes -->
+<section class="section alt">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px" data-reveal>
+      <span class="eyebrow">Nos programmes</span>
+      <h2 class="h-title">Des parcours pour chaque <span class="accent">objectif professionnel</span></h2>
+      <p style="color:var(--muted);max-width:600px;margin:14px auto 0">Des cursus courts et diplômants pensés pour les soignants qui veulent se spécialiser ou évoluer.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card" data-reveal>
+        <div class="prog-ic"><i class="fa-solid fa-user-nurse"></i></div>
+        <h4>Spécialisation clinique</h4>
+        <p>Approfondissez un domaine précis : soins intensifs, bloc opératoire, gériatrie, pédiatrie ou santé mentale, encadré par des experts en exercice.</p>
+        <span class="prog-meta">Durée : 1 an</span>
+      </div>
+      <div class="prog-card" data-reveal>
+        <div class="prog-ic"><i class="fa-solid fa-users-gear"></i></div>
+        <h4>Management des soins</h4>
+        <p>Devenez cadre de santé : encadrement d'équipe, organisation des services, qualité et sécurité des soins, gestion de projet en milieu hospitalier.</p>
+        <span class="prog-meta">Durée : 1–2 ans</span>
+      </div>
+      <div class="prog-card" data-reveal>
+        <div class="prog-ic"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <h4>Pédagogie & formation</h4>
+        <p>Formez à votre tour : transmettez votre expertise en devenant formateur ou tuteur de stage certifié dans les métiers paramédicaux.</p>
+        <span class="prog-meta">Durée : 6–12 mois</span>
+      </div>
+      <div class="prog-card" data-reveal>
+        <div class="prog-ic"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h4>Licence professionnelle</h4>
+        <p>Validez un diplôme de niveau Licence pour consolider votre parcours et ouvrir l'accès à des fonctions à responsabilité.</p>
+        <span class="prog-meta">Diplôme reconnu</span>
+      </div>
+      <div class="prog-card" data-reveal>
+        <div class="prog-ic"><i class="fa-solid fa-award"></i></div>
+        <h4>Master spécialisé</h4>
+        <p>Accédez au plus haut niveau d'expertise avec un Master orienté encadrement, recherche clinique ou santé publique.</p>
+        <span class="prog-meta">Diplôme reconnu</span>
+      </div>
+      <div class="prog-card" data-reveal>
+        <div class="prog-ic"><i class="fa-solid fa-earth-africa"></i></div>
+        <h4>Certifications internationales</h4>
+        <p>Préparez des certifications reconnues à l'étranger (Canada, Allemagne, France, UK) grâce à nos accords de partenariat exclusifs.</p>
+        <span class="prog-meta">À l'international</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Public concerné -->
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:46px" data-reveal>
+      <span class="eyebrow">À qui s'adresse la formation continue ?</span>
+      <h2 class="h-title">Un programme pour chaque <span class="accent">profil</span></h2>
+    </div>
+    <div class="pub-grid">
+      <div class="pub-card" data-reveal><div class="pub-ic"><i class="fa-solid fa-user-doctor"></i></div><h4>Infirmiers</h4><p>Diplômés souhaitant se spécialiser ou évoluer vers l'encadrement.</p></div>
+      <div class="pub-card" data-reveal><div class="pub-ic"><i class="fa-solid fa-hand-holding-medical"></i></div><h4>Aides-soignants</h4><p>Professionnels en quête d'une montée en compétences ou d'une passerelle.</p></div>
+      <div class="pub-card" data-reveal><div class="pub-ic"><i class="fa-solid fa-people-arrows"></i></div><h4>En reconversion</h4><p>Actifs souhaitant rejoindre le secteur porteur de la santé.</p></div>
+      <div class="pub-card" data-reveal><div class="pub-ic"><i class="fa-solid fa-hospital-user"></i></div><h4>Cadres de santé</h4><p>Responsables voulant renforcer management et pédagogie.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section alt">
+  <div class="container"><div style="background:linear-gradient(120deg,var(--dark),var(--purple));color:#fff;border-radius:26px;padding:54px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap" data-reveal="zoom">
+    <div><h2 style="font-size:1.9rem;font-weight:800">Prêt à faire évoluer votre carrière ?</h2><p style="color:rgba(255,255,255,.8);margin-top:6px">Nos conseillers construisent avec vous le programme adapté à votre projet.</p></div>
+    <a href="contact.html" class="btn btn-pink" data-inscrire>Nous contacter</a>
+  </div></div>
+</section>
+
+<footer id="site-footer">
+  <div class="footer-top container"><div class="footer-grid">
+    <div class="footer-brand"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-galien-blanc.png" alt="Institut Galien"/><p>Le 1er établissement privé accrédité dans le secteur paramédical au Maroc, depuis 2002.</p><div class="f-social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="institut.html">À propos</a></li><li><a href="formations.html">Formation initiale</a></li><li><a href="formation-continue.html">Formation continue</a></li><li><a href="temoignages.html">Témoignages</a></li><li><a href="galerie.html">Vie scolaire</a></li></ul></div>
+    <div class="footer-col"><h4>Formations</h4><ul><li><a href="formations.html">Kinésithérapie</a></li><li><a href="formations.html">Sage-femme</a></li><li><a href="formations.html">Infirmier polyvalent</a></li><li><a href="formations.html">Aide-soignant</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">Avenue El Mouqwama, Agadir</a></li><li><a href="tel:+212528848686">(+212) 528 848 686</a></li><li><a href="https://galien.ma">www.galien.ma</a></li></ul></div>
+  </div></div>
+  <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
+</footer>
+<button id="toTop">↑</button>
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'fr',includedLanguages:'fr,en,ar',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="galien.js"></script>
+</body>
+</html>

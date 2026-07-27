@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nos Partenaires — Institut Galien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="galien-style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+.part-nat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.pn-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:28px 26px;transition:.3s}
+.pn-card:hover{border-color:var(--pink);box-shadow:0 10px 32px rgba(233,30,140,.1);transform:translateY(-4px)}
+.pn-icon{font-size:2rem;color:var(--pink);margin-bottom:14px}
+.pn-card h4{color:var(--purple);font-size:1.02rem;font-weight:700;margin-bottom:10px}
+.pn-card p{color:var(--muted);font-size:.87rem;line-height:1.75;margin-bottom:14px}
+.pn-tag{display:inline-block;background:rgba(59,42,143,.08);color:var(--purple);font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:30px}
+.part-intl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pi-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:26px;transition:.3s}
+.pi-card:hover{border-color:var(--pink);box-shadow:0 10px 32px rgba(233,30,140,.1);transform:translateY(-4px)}
+.pi-header{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.pi-flag{font-size:2.2rem}
+.pi-header h4{color:var(--purple);font-size:1rem;font-weight:700;margin:0}
+.pi-pays{font-size:.76rem;color:var(--muted);font-weight:600}
+.pi-card p{color:var(--muted);font-size:.84rem;line-height:1.75;margin-bottom:14px}
+.pi-tags{display:flex;flex-wrap:wrap;gap:7px}
+.pi-tags span{background:rgba(233,30,140,.08);color:var(--pink);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px}
+.part-sub{color:var(--purple);font-size:1.1rem;font-weight:700;margin-bottom:22px;padding-left:4px}
+.partners-band{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center}
+.partners-band img{max-width:100%;height:auto}
+@media(max-width:900px){.part-intl-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.part-nat-grid{grid-template-columns:1fr}.part-intl-grid{grid-template-columns:1fr}}
+</style>
+<style>
+#google_translate_element{display:flex;align-items:center}
+#google_translate_element .goog-te-gadget{color:transparent;font-size:0}
+#google_translate_element .goog-te-gadget select{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:20px;cursor:pointer;outline:none;font-family:inherit}
+#google_translate_element .goog-te-gadget select:hover{background:rgba(255,255,255,.25)}
+#google_translate_element .goog-te-gadget select option{color:#1a1233;background:#fff}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+</style></head>
+<body>
+
+<div class="topbar"><div class="container">
+  <div class="tb-info"><span><i class="fa-solid fa-phone"></i> <a href="tel:+212528848686">(+212) 528 848 686</a></span><span class="hide-sm"><i class="fa-solid fa-location-dot"></i> Avenue El Mouqwama, Agadir 80000</span></div>
+        <div id="google_translate_element"></div><div class="tb-social"><a href="#">Facebook</a><a href="https://www.instagram.com/institutgalien.officiel" target="_blank">Instagram</a><a href="https://www.youtube.com/@InstitueGalien" target="_blank">YouTube</a></div>
+</div></div>
+<header id="site-header"><div class="container"><nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-Galien.png" alt="Institut Galien"/></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="institut.html">À propos</a></li>
+    <li><a href="formations.html">Formation initiale</a></li>
+    <li><a href="formation-continue.html">Formation continue</a></li>
+    <li><a href="temoignages.html">Témoignages</a></li>
+    <li><a href="galerie.html">Vie scolaire</a></li>
+    <li><a href="partenaires.html" class="active">Nos partenaires</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-pink nav-cta" data-inscrire>S'inscrire</a></li>
+  </ul>
+  <div class="lang-switcher"><button onclick="setLang('fr')" class="ls-btn" id="ls-fr">FR</button><button onclick="setLang('en')" class="ls-btn" id="ls-en">EN</button><button onclick="setLang('ar')" class="ls-btn" id="ls-ar">ع</button></div><div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav></div></header>
+
+<section class="page-hero" style="background-image:url('images/dsc07225.jpg')">
+  <div class="container"><h1>Nos Partenaires</h1><div class="crumb"><a href="index.html">Accueil</a> › Nos partenaires</div></div>
+</section>
+
+<!-- Partenaires -->
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:54px" data-reveal>
+      <span class="eyebrow">Réseau partenaire</span>
+      <h2 class="h-title">Des partenaires <span class="accent">nationaux & internationaux</span></h2>
+      <p style="color:var(--muted);max-width:640px;margin:14px auto 0">L'Institut Galien a tissé des partenariats solides avec des institutions de santé au Maroc et à l'étranger pour garantir à chaque étudiant des terrains de stage de qualité et des perspectives d'emploi concrètes.</p>
+    </div>
+
+    <!-- National -->
+    <h3 class="part-sub">🇲🇦 Partenaires nationaux</h3>
+    <div class="part-nat-grid" data-reveal>
+      <div class="pn-card">
+        <div class="pn-icon"><i class="fa-solid fa-hospital"></i></div>
+        <h4>CHU Souss-Massa — Agadir</h4>
+        <p>Partenaire principal pour les stages en soins infirmiers, urgences et maternité. Nos étudiants intègrent les services de médecine générale, chirurgie et réanimation aux côtés d'équipes médicales expérimentées.</p>
+        <div class="pn-tag">Infirmier polyvalent · Sage-femme · Aide-soignant</div>
+      </div>
+      <div class="pn-card">
+        <div class="pn-icon"><i class="fa-solid fa-building"></i></div>
+        <h4>Cliniques privées — Région Agadir</h4>
+        <p>Un réseau de cliniques et polycliniques privées offre à nos étudiants une vision complémentaire au secteur public, dans des environnements techniques modernes et bien équipés.</p>
+        <div class="pn-tag">Kinésithérapie · Infirmier auxiliaire · Vente en pharmacie</div>
+      </div>
+      <div class="pn-card">
+        <div class="pn-icon"><i class="fa-solid fa-pills"></i></div>
+        <h4>Officines & pharmacies affiliées</h4>
+        <p>Nos étudiants en vente en pharmacie apprennent directement en officine : gestion des stocks, conseil patient, délivrance sur ordonnance et relation client en conditions réelles.</p>
+        <div class="pn-tag">Vente en pharmacie</div>
+      </div>
+      <div class="pn-card">
+        <div class="pn-icon"><i class="fa-solid fa-dumbbell"></i></div>
+        <h4>Centres de rééducation & kiné</h4>
+        <p>Nos futurs kinésithérapeutes sont accueillis dans des centres spécialisés — rééducation fonctionnelle, sport-santé, médecine physique — pour développer des compétences manuelles pointues.</p>
+        <div class="pn-tag">Kinésithérapie</div>
+      </div>
+    </div>
+
+    <!-- International -->
+    <div style="margin-top:60px">
+      <h3 class="part-sub">🌍 Partenaires internationaux</h3>
+      <div class="part-intl-grid" data-reveal>
+        <div class="pi-card">
+          <div class="pi-header"><span class="pi-flag">🇨🇦</span><div><h4>Santé Vitalité</h4><span class="pi-pays">Canada</span></div></div>
+          <p>Partenaire de référence au Canada, Santé Vitalité ouvre à nos diplômés des passerelles vers des postes infirmiers et paramédicaux dans les établissements canadiens. Un pont direct entre votre diplôme Galien et une carrière en Amérique du Nord.</p>
+          <div class="pi-tags"><span>Stages & emploi</span><span>Infirmiers</span></div>
+        </div>
+        <div class="pi-card">
+          <div class="pi-header"><span class="pi-flag">🇨🇦</span><div><h4>Collège d'Alma</h4><span class="pi-pays">Québec, Canada</span></div></div>
+          <p>Le Collège d'Alma au Québec propose des programmes d'accueil pour nos étudiants en kinésithérapie et soins infirmiers. Un échange académique et clinique qui enrichit votre parcours et renforce votre dossier à l'international.</p>
+          <div class="pi-tags"><span>Échanges académiques</span><span>Kinésithérapie</span></div>
+        </div>
+        <div class="pi-card">
+          <div class="pi-header"><span class="pi-flag">🇩🇪</span><div><h4>Académie Allemande</h4><span class="pi-pays">Allemagne</span></div></div>
+          <p>L'Académie Allemande ouvre ses portes pour des programmes en médecine du travail et soins spécialisés. L'Allemagne recrute massivement des paramédicaux étrangers qualifiés — un marché d'emploi exceptionnel pour nos diplômés.</p>
+          <div class="pi-tags"><span>Formation continue</span><span>Soins spécialisés</span></div>
+        </div>
+        <div class="pi-card">
+          <div class="pi-header"><span class="pi-flag">🇫🇷</span><div><h4>Nocaire</h4><span class="pi-pays">France</span></div></div>
+          <p>Nocaire facilite la reconnaissance des diplômes Galien en France et accompagne nos lauréats dans leurs démarches d'équivalence pour exercer légalement sur le territoire français.</p>
+          <div class="pi-tags"><span>Équivalence diplômes</span><span>Insertion France</span></div>
+        </div>
+        <div class="pi-card">
+          <div class="pi-header"><span class="pi-flag">🇬🇧</span><div><h4>Oxford</h4><span class="pi-pays">Royaume-Uni</span></div></div>
+          <p>Notre partenariat avec Oxford donne accès à des certifications professionnelles reconnues mondialement et à des programmes en anglais médical — un atout majeur pour les étudiants visant une carrière internationale.</p>
+          <div class="pi-tags"><span>Certifications internationales</span><span>Anglais médical</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logos band -->
+    <div style="margin-top:54px" data-reveal>
+      <div class="center" style="margin-bottom:22px"><span class="eyebrow">Partenaires institutionnels</span></div>
+      <div class="partners-band"><img src="images/partenaire.png" alt="Partenaires Institut Galien"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section alt">
+  <div class="container"><div style="background:linear-gradient(120deg,var(--dark),var(--purple));color:#fff;border-radius:26px;padding:54px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap" data-reveal="zoom">
+    <div><h2 style="font-size:1.9rem;font-weight:800">Devenir partenaire de l'Institut Galien</h2><p style="color:rgba(255,255,255,.8);margin-top:6px">Institutions de santé, hôpitaux, cliniques : construisons ensemble l'avenir des métiers de la santé.</p></div>
+    <a href="contact.html" class="btn btn-pink">Nous contacter</a>
+  </div></div>
+</section>
+
+<footer id="site-footer">
+  <div class="footer-top container"><div class="footer-grid">
+    <div class="footer-brand"><img src="https://galien.ma/wp-content/uploads/2023/09/logo-galien-blanc.png" alt="Institut Galien"/><p>Le 1er établissement privé accrédité dans le secteur paramédical au Maroc, depuis 2002.</p><div class="f-social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="institut.html">À propos</a></li><li><a href="formations.html">Formation initiale</a></li><li><a href="formation-continue.html">Formation continue</a></li><li><a href="temoignages.html">Témoignages</a></li><li><a href="galerie.html">Vie scolaire</a></li></ul></div>
+    <div class="footer-col"><h4>Formations</h4><ul><li><a href="formations.html">Kinésithérapie</a></li><li><a href="formations.html">Sage-femme</a></li><li><a href="formations.html">Infirmier polyvalent</a></li><li><a href="formations.html">Aide-soignant</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">Avenue El Mouqwama, Agadir</a></li><li><a href="tel:+212528848686">(+212) 528 848 686</a></li><li><a href="https://galien.ma">www.galien.ma</a></li></ul></div>
+  </div></div>
+  <div class="container"><div class="footer-bottom"><span>© 2026 Institut Galien — Tous droits réservés</span><span><a href="#">Confidentialité</a> · <a href="#">Conditions</a></span></div></div>
+</footer>
+<button id="toTop">↑</button>
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'fr',includedLanguages:'fr,en,ar',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="galien.js"></script>
+</body>
+</html>
