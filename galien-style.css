@@ -303,3 +303,29 @@ body{animation:pageIn .55s ease both}
   .gm-row{grid-template-columns:1fr}
   .gmodal{padding:14px}
 }
+
+/* =====================  CONTACT FORMS (CF7) POLISH  ===================== */
+.form-box .wpcf7{margin-top:2px}
+.form-box .wpcf7 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-box .wpcf7 .fg{margin-bottom:18px}
+.form-box .wpcf7 .fg > label{display:block;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:7px}
+.form-box .wpcf7 input[type=text],.form-box .wpcf7 input[type=email],.form-box .wpcf7 input[type=tel],.form-box .wpcf7 select,.form-box .wpcf7 textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:.92rem;outline:none;transition:border .25s,box-shadow .25s;background:#fff;color:var(--ink)}
+.form-box .wpcf7 input:focus,.form-box .wpcf7 select:focus,.form-box .wpcf7 textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(233,30,140,.12)}
+.form-box .wpcf7 select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e91e8c' stroke-width='3'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 15px center;padding-right:40px;cursor:pointer}
+.form-box .wpcf7 textarea{min-height:140px;resize:vertical}
+/* styled file uploads */
+.form-box .wpcf7 .fg:has(input[type=file]) > label{margin-bottom:7px}
+.form-box .wpcf7 input[type=file]{width:100%;border:1.6px dashed rgba(233,30,140,.4);border-radius:12px;padding:13px 15px;background:rgba(233,30,140,.035);cursor:pointer;font-size:.84rem;color:var(--muted);transition:.25s}
+.form-box .wpcf7 input[type=file]:hover{border-color:var(--pink);background:rgba(233,30,140,.07)}
+.form-box .wpcf7 input[type=file]::file-selector-button{margin-right:14px;border:none;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;padding:9px 18px;border-radius:9px;font-weight:700;font-size:.8rem;cursor:pointer;font-family:inherit;transition:.25s}
+.form-box .wpcf7 input[type=file]:hover::file-selector-button{filter:brightness(1.08);transform:translateY(-1px)}
+/* submit button */
+.form-box .wpcf7 .submit,.form-box .wpcf7 input[type=submit],.form-box .wpcf7 button[type=submit]{width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(120deg,var(--pink),#ff5fae);color:#fff;font-weight:700;font-size:1rem;cursor:pointer;transition:.3s;margin-top:8px;letter-spacing:.02em}
+.form-box .wpcf7 .submit:hover,.form-box .wpcf7 input[type=submit]:hover,.form-box .wpcf7 button[type=submit]:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(233,30,140,.38)}
+.form-box .wpcf7 .wpcf7-spinner{margin:16px auto 0;display:block}
+.form-box .wpcf7 .wpcf7-not-valid-tip{color:#c0392b;font-size:.76rem;margin-top:5px}
+.form-box .wpcf7-response-output{border-radius:12px !important;margin:18px 0 0 !important;padding:13px 18px !important;font-size:.88rem;border-width:1.5px !important}
+.form-box .wpcf7 form.sent .wpcf7-response-output{background:rgba(46,204,113,.1);border-color:#2ecc71 !important;color:#1e7d47}
+.form-box .form-info{font-size:.78rem;line-height:1.5;color:var(--muted);margin-top:8px}
+.form-box .form-info.warn{color:#c0392b}
+@media(max-width:560px){.form-box .wpcf7 .frow{grid-template-columns:1fr;gap:0}}
